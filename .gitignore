@@ -41,7 +41,6 @@
 # unless explicitly whitelisted at the end of this file
 
 # ignore all files starting with . or ~
-.*
 ~*
 
 # ignore node/grunt dependency directories
@@ -115,9 +114,9 @@ Thumbs.db
 !mstile-*.png
 !safari-pinned-tab.svg
 !site.webmanifest
-*.png
+# *.png
 *.jpeg
-*.jpeg
+# *.jpg
 *.ai
 *.psd
 
