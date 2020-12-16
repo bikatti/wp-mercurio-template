@@ -140,7 +140,7 @@ class FooterClassButtonWalker extends Walker_Nav_Menu {
         }
   
         $item_output = $args->before;
-        $item_output .= '<a '. $attributes . 'class="m-pageNav__link m-pageNav__cta -uppercase -bold -colorLightin"' .'>';
+        $item_output .= '<a '. $attributes . 'class="m-pageNav__link m-pageNav__cta -uppercase -bold -colorLightin">';
         $item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
         $item_output .= $description.$args->link_after;
         $item_output .= $args->after;
@@ -195,71 +195,29 @@ class upperWalker extends Walker_Nav_Menu {
 }
 
 // Sección
-function tecnoligias_init() {
+
+function publicidad_init() {
+    $name = 'Publicidad';
+
     $labels = array(
-        'name'              => _x( 'Tecnoligia', 'post type general name', 'your-plugin-textdomain' ),
-        'singular_name'     => _x( 'Tecnoligia', 'post type general name', 'your-plugin-textdomain' ),
-        'menu_name'         => _x( 'Tecnoligia', 'admin menu', 'your-plugin-textdomain' ),
-        'name_admin_bar'    => _x( 'Tecnoligia', 'add new on admin bar', 'your-plugin-textdomain' ),
-        'add_new'           => _x( 'Añadir nuevo', 'tecnoligia', 'your-plugin-textdomain' ),
-        'add_new_item'      => __( 'Añadir nuevo post de tecnoligia', 'your-plugin-textdomain' ),
-        'new_item'          => __( 'Nuevo post de tecnoligia', 'your-plugin-textdomain' ),
-        'edit_item'         => __( 'Editar post de tecnoligia', 'your-plugin-textdomain' ),
-        'view_item'         => __( 'Ver post de tecnoligia', 'your-plugin-textdomain' ),
-        'all_items'         => __( 'Todos los post de tecnoligia', 'your-plugin-textdomain' ),
-        'search_items'      => __( 'Buscar posts de tecnoligia', 'your-plugin-textdomain' ),
-        'parent_item_colon' => __( 'Tecnoligia padre', 'your-plugin-textdomain' ),
-        'not_found'         => __( 'No hemos encontrado ningún posts en la sección de tecnoligia.', 'your-plugin-textdomain' ),
-        'not_found_in_trash'=> __( 'No hemos encontrado ningún posts en la sección de tecnoligia en la papelera', 'your-plugin-textdomain' ),
+        'name'              => _x( $name, 'post type general name', 'your-plugin-textdomain' ),
+        'singular_name'     => _x( $name, 'post type general name', 'your-plugin-textdomain' ),
+        'menu_name'         => _x( $name, 'admin menu', 'your-plugin-textdomain' ),
+        'name_admin_bar'    => _x( $name, 'add new on admin bar', 'your-plugin-textdomain' ),
+        'add_new'           => _x( 'Añadir nuevo', $name, 'your-plugin-textdomain' ),
+        'add_new_item'      => __( 'Añadir nueva ' . $name, 'your-plugin-textdomain' ),
+        'new_item'          => __( 'Nueva ' . $name, 'your-plugin-textdomain' ),
+        'edit_item'         => __( 'Editar ' . $name, 'your-plugin-textdomain' ),
+        'view_item'         => __( 'Ver ' . $name, 'your-plugin-textdomain' ),
+        'all_items'         => __( 'Todos las ' . $name, 'your-plugin-textdomain' ),
+        'search_items'      => __( 'Buscar ' . $name, 'your-plugin-textdomain' ),
+        'parent_item_colon' => __( $name . ' padre', 'your-plugin-textdomain' ),
+        'not_found'         => __( 'No hemos encontrado ninguna ' . $name, 'your-plugin-textdomain' ),
+        'not_found_in_trash'=> __( 'No hemos encontrado ninguna ' . $name . ' en la papelera', 'your-plugin-textdomain' ),
     );
 
     $args = array(
-        'label'            => 'Tecnoligia',
-        'description'       => __('Description', 'Sección de tecnoligia'),
-        'labels'            => $labels,
-        'public'            => true,
-        // Significa que lo pude llamar un Loop
-        'publicly_queryable'=> true,
-        'show_ui'           => true,
-        'show_in_menu'      => true,
-        'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'tecnoligia' ),
-        'capability_type'   => 'post',
-        'has_archive'       => true,
-        'hierarchical'      => false,
-        'menu_position'     => 5,
-        'menu_icon'         => 'dashicons-edit',
-        'can_export'        => true,
-        'show_in_rest'      => true,
-        'taxonomies'         => array( 'category', 'post_tag' ),
-        'supports'          => array( 'title', 'excerpt', 'editor', 'author', 'thumbnail', 'revisions' )
-    );
-
-    register_post_type( 'tecnoligia', $args );
-}
-
-add_action( 'init', 'tecnoligias_init' );
-
-function headliner_init() {
-    $labels = array(
-        'name'              => _x( 'headliner', 'post type general name', 'your-plugin-textdomain' ),
-        'singular_name'     => _x( 'Post de Portada', 'post type general name', 'your-plugin-textdomain' ),
-        'menu_name'         => _x( 'Post de Portada', 'admin menu', 'your-plugin-textdomain' ),
-        'name_admin_bar'    => _x( 'Post de Portada', 'add new on admin bar', 'your-plugin-textdomain' ),
-        'add_new'           => _x( 'Añadir nuevo', 'post de portada', 'your-plugin-textdomain' ),
-        'add_new_item'      => __( 'Añadir nuevo post de Portada', 'your-plugin-textdomain' ),
-        'new_item'          => __( 'Nuevo Post de Portada', 'your-plugin-textdomain' ),
-        'edit_item'         => __( 'Editar Post de Portada', 'your-plugin-textdomain' ),
-        'view_item'         => __( 'Ver Post de Portada', 'your-plugin-textdomain' ),
-        'all_items'         => __( 'Todos los Post de Portada', 'your-plugin-textdomain' ),
-        'search_items'      => __( 'Buscar posts de Portada', 'your-plugin-textdomain' ),
-        'parent_item_colon' => __( 'Post de Portada padre', 'your-plugin-textdomain' ),
-        'not_found'         => __( 'No hemos encontrado ningún posts de portada (headliner).', 'your-plugin-textdomain' ),
-        'not_found_in_trash'=> __( 'No hemos encontrado ningún posts de portada (headliner) en la papelera', 'your-plugin-textdomain' ),
-    );
-
-    $args = array(
-        'label'            => 'headliner',
+        'label'            => 'publicidad',
         'description'       => __('Description', 'Aquí podrás postear las entradas que sea más importantes para que salgan en la cabecera principal.'),
         'labels'            => $labels,
         'public'            => true,
@@ -268,7 +226,7 @@ function headliner_init() {
         'show_ui'           => true,
         'show_in_menu'      => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'headliner' ),
+        'rewrite'           => array( 'slug' => 'publicidad' ),
         'capability_type'   => 'post',
         'has_archive'       => true,
         'hierarchical'      => false,
@@ -276,14 +234,35 @@ function headliner_init() {
         'menu_icon'         => 'dashicons-album',
         'can_export'        => true,
         'show_in_rest'      => true,
-        'taxonomies'         => array( 'category', 'post_tag' ),
-        'supports'          => array( 'title', 'excerpt', 'editor', 'author', 'thumbnail', 'revisions' )
+        'supports'          => array( 'title', 'editor', 'author', 'revisions' )
     );
 
-    register_post_type( 'headliner', $args );
+    register_post_type( 'publicidad', $args );
 }
 
-add_action( 'init', 'headliner_init' );
+add_action( 'init', 'publicidad_init' );
+
+// Change dashboard Posts to News
+function change_post_type() {
+    $get_post_type = get_post_type_object('post');
+    $labels = $get_post_type->labels;
+    $name = 'Artículo';
+
+    $labels->name               = _x( $name, 'post type general name', 'your-plugin-textdomain' );
+    $labels->singular_name      = _x( $name, 'post type general name', 'your-plugin-textdomain' );
+    $labels->menu_name          = _x( $name, 'admin menu', 'your-plugin-textdomain' );
+    $labels->name_admin_bar     = _x( $name, 'add new on admin bar', 'your-plugin-textdomain' );
+    $labels->add_new            = _x( 'Añadir nuevo', $name, 'your-plugin-textdomain' );
+    $labels->add_new_item       = __( 'Añadir Nuev0 ' . $name, 'your-plugin-textdomain' );
+    $labels->new_item           = __( 'Nuevo ' . $name, 'your-plugin-textdomain' );
+    $labels->edit_item          = __( 'Editar ' . $name, 'your-plugin-textdomain' );
+    $labels->view_item          = __( 'Ver ' . $name, 'your-plugin-textdomain' );
+    $labels->all_items          = __( 'Todos los ' . $name, 'your-plugin-textdomain' );
+    $labels->search_items       = __( 'Buscar ' . $name, 'your-plugin-textdomain' );
+    $labels->not_found          = _n( 'No se encontro el ' . $name, 'No hemos encontrado ningún ' . $name, 'numero-objeto', 'texto-dominio' );
+    $labels->not_found_in_trash = _n( 'No se encontro el ' . $name . ' en Papelera', 'No hemos encontrado ningún ' . $name . ' en Papelera', 'numero-objeto', 'texto-dominio' );
+}
+add_action( 'init', 'change_post_type' );
 
 // Añadiendo clases personalizadas
 function add_class_the_tags($html) {
@@ -303,6 +282,11 @@ function add_class_the_author_link($html) {
     return $html;
 }
 add_filter('the_author_posts_link','add_class_the_author_link');
+
+function replace_category_name($html) {
+    $html = str_replace('<a m-pageNav__link','<a class="-byLink -uppercase -bold"', $html);
+    return $html;
+}
 
 // Function del breadcrumbs
 function the_breadcrumb() {
@@ -393,7 +377,7 @@ add_action( 'wp_head', 'wpb_track_post_views');
 function wpb_get_post_views($postID){
     $count_key = 'wpb_post_views_count';
     $count = get_post_meta($postID, $count_key, true);
-    if($count==''){
+    if($count == ''){
         delete_post_meta($postID, $count_key);
         add_post_meta($postID, $count_key, '0');
         return "0 View";
@@ -449,7 +433,6 @@ function awp_autocomplete_search() {
 
 // Hooks admin-post
 add_action( 'admin_post_nopriv_process_form', 'send_mail_data' );
-add_action( 'admin_post_process_form', 'send_mail_data' );
 
 // Funcion callback
 function send_mail_data() {
@@ -457,20 +440,21 @@ function send_mail_data() {
     $lastname = sanitize_text_field($_POST['lastname']);
 	$email = sanitize_email($_POST['email']);
 	$message = sanitize_textarea_field($_POST['message']);
-
+    
 	$adminmail = "ibikatti@gmail.com"; //email destino
 	$subject = 'Formulario de contacto'; //asunto
 	$headers = "Reply-to: " . $name . " <" . $email . ">";
-
+    
 	//Cuerpo del mensaje
 	$msg = "Nombre: " . $name . "\n";
 	$msg .= "E-mail: " . $email . "\n\n";
 	$msg .= "Mensaje: \n\n" . $message . "\n";
-
+    
     $sendmail = wp_mail( $adminmail, $subject, $msg, $headers);
-
+    
     wp_redirect( home_url('/contactar') . "?sent=". $sendmail ); //asumiendo que existe esta url
 }
+add_action( 'admin_post_process_form', 'send_mail_data' );
 
 
 function sidebar() {

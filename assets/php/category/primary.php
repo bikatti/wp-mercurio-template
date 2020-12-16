@@ -6,7 +6,7 @@
                 $category = get_category( get_query_var( 'cat' ) );
                 $args = array(
                     'cat' => $category->term_id,
-                    'posts_per_page' => 3,
+                    'posts_per_page' => -1,
                 );
                 $the_query = new WP_Query($args);
                 $iter = 0;
@@ -15,9 +15,10 @@
                 if ($the_query->have_posts()) {
                     while ($the_query->have_posts()) {
                         $the_query->the_post(  );
-                        $sticky = get_field('titulares', get_the_ID(  ));
+                        $sticky = get_field('titulares_de_categorias', get_the_ID(  ));
                         
-                        if($iter == 0 && $sticky == 1 && $max++ <= 3) {
+                        if($iter == 0 && $sticky == 1 && $max <= 3) {
+                            $max++;
                             $iter++;
                         ?>
                             <div class="m-3Pack__item">
@@ -48,7 +49,9 @@
                                 <!-- article.m-card__overlay -->
                             </div>
                             <!-- m-3Pack__item -->
-                    <?php } elseif (!$iter == 0 && $sticky == 1 && $max++ <= 3) { ?>
+                    <?php } elseif (!$iter == 0 && $sticky == 1 && $max <= 3) {
+                                $max++;
+                        ?>
                             <div class="m-3Pack__item">
                                 <article class="m-card -ftHome">
                                     <a href="<?php the_permalink( ); ?>" class="m-card__wrap">

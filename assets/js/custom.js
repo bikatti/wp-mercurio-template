@@ -46,22 +46,37 @@ function hideShow() {
     }
 }
 
-// When the user clicks on the button, 
-// toggle between hiding and showing the dropdown content
-// function myFunction() {
-//   document.getAttribute("myDropdown").classList.toggle("show")
-// }
+/* When the user clicks on the button, 
+closes every dropdowns and open the only one passed as argument */
 
-// // Close the dropdown if the user clicks outside of it
-// window.onclick = (event) => {
-//   if (!event.target.matches('.dropbtn')) {
-//     let dropdowns = document.getElementsByClassName("dropdown-content")
-//     let i
-//     for (let i = 0; i < dropdowns.length; i++) {
-//       let openDropdown = dropdowns[i]
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show')
-//       }
-//     }
-//   }
-// }
+/* Javascript only */
+function myFunction(element) {
+  let dropdowns = document.getElementsByClassName("m-pageNav__group");
+  
+  // element.nextSibling is the carriage return… The dropdown menu is the next next.
+  let thisDropdown = element.nextSibling.nextSibling;
+  
+  if (!thisDropdown.classList.contains('-visible')) {  // Added to hide dropdown if clicking on the one already open
+    let i;
+    for (i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove('-visible');
+    }
+  }
+  
+  // Toggle the dropdown on the element clicked
+  thisDropdown.classList.toggle("-visible");
+}
+
+/* W3Schools function to close the dropdown when clicked outside. */
+window.onclick = function(event) {
+  if (!event.target.matches('.m-pageNav__heading')) {
+    let dropdowns = document.getElementsByClassName("m-pageNav__group");
+    let i;
+    for (i = 0; i < dropdowns.length; i++) {
+      let openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('-visible')) {
+        openDropdown.classList.remove('-visible');
+      }
+    }
+  }
+}

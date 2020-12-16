@@ -4,21 +4,21 @@
             <?php 
                 $args = array(
                     'post_type' => $contents,
-                    'posts_per_page' => 10,
+                    'posts_per_page' => 20,
                     'order' => 'DESC',
                     'orderby' => 'date'
                 );
                 $headlines = new WP_Query($args);
-                $iter = 0;
                 $max = 1;
                 
                 if ($headlines->have_posts()) {
                     while ($headlines->have_posts()) {
                         $headlines->the_post(  );
-                        $sticky = get_field('titulares', get_the_ID(  ));
-
-                        if($iter == 0 && $sticky == 1 && $max++ <= 3) {
+                        $sticky = get_field('titular_principal', get_the_ID(  ));
+                        
+                        if($sticky == 1 && $max <= 1) {
                             $iter++;
+                            $max++;
                         ?>
                             <div class="m-mainHeader__item">
                                 <article class="m-card m-card__overlay -home">
@@ -48,7 +48,18 @@
                                 <!-- article.m-card__overlay -->
                             </div>
                             <!-- m-mainHeader__item -->
-                    <?php } elseif (!$iter == 0 && $sticky == 1 && $max++ <= 3) {
+                    <?php }
+                    }
+                }
+
+                // Segunda parte de los titulares
+                if ($headlines->have_posts()) {
+                    while ($headlines->have_posts()) {
+                        $headlines->the_post(  );
+
+                        $importants = get_field('titulares_importantes', get_the_ID(  ));
+                        if ($importants == 1 && $max <= 3) {
+                            $max++;
                             ?>
                             <div class="m-mainHeader__item">
                                 <article class="m-card -ftHome">
@@ -77,11 +88,9 @@
                             </div>
                             <!-- m-mainHeader__item [secondary|tertiary] -->
                     <?php
-                        } else {
-                            #tranqui
                         }
                     }
-                } 
+                }
             ?> 
         </section>
     </div>

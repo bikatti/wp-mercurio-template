@@ -13,8 +13,8 @@
             
             if ($headlines->have_posts()) {
                 while ($headlines->have_posts()) {
-                    $sticky = get_field('seccion_destacada', get_the_ID(  ));
                     $headlines->the_post(  );
+                    $sticky = get_field('seccion_destacada', get_the_ID());
 
                     if($iter == 0 && $sticky == 1 && $max <= 6) {
                         $iter++;

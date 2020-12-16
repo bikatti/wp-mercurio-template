@@ -48,7 +48,7 @@
                             ?>
                                 <div class="m-cards__gridItem">
                                     <article class="m-card m-card__grid">
-                                        <a href="<?php the_permalink( ); ?>" class="m-card__wrap">
+                                        <a href="<?php echo esc_url(the_permalink( )); ?>" class="m-card__wrap">
                                             <figure class="m-card__img">
                                                 <div class="m-crop m-crop__ratio3x2"><?php the_post_thumbnail( 'medium_large', ['class' => 'm-crop__img -headline'] ); ?></div>
                                             </figure>
@@ -68,7 +68,7 @@
                                                     </span>
                                                 </div>
                                                 <p class="m-card__byLine -copy">Por <?php echo get_the_author( ); ?> </p>
-                                                <p class="m-card__lead -copy"> <?php echo get_the_excerpt(); ?> </p>
+                                                <p class="m-card__lead -copy"> <?php echo esc_html(get_the_excerpt()); ?> </p>
 
                                             </header>
                                         </a>
@@ -111,7 +111,8 @@
                         if ($headlines->have_posts()) {
                             while ($headlines->have_posts()) {
                                 $headlines->the_post(  );
-                                $campos_album = get_post_custom( $post_id );
+                                
+                                $campos_album = get_post_custom( get_the_ID(  ) );
                                 $image = get_field('portada');
                                 ?>
                                 <li class="m-reviews__item">

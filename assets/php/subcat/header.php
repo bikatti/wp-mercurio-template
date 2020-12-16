@@ -9,6 +9,6 @@
         endif;
 
     ?>
-    <h1 class="m-archiveTop__heading"><span class="-colorLightin -uppercase -extraBold">Categoría: <?php echo $catId->name; ?></span></h1>
+    <h1 class="m-archiveTop__heading"><span class="-colorLightin -extraBold"><?php echo $catId->name; ?></span></h1>
     <!-- .m-archiveTop__heading -->
 </div>

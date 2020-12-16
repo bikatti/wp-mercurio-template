@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php   $contents = array('post', 'headliner');
+<?php   $contents = 'post';
         global $contents;
 ?>
 <div class="o-content">

@@ -19,15 +19,17 @@
                 <nav class="m-footer__menu -wide">
                     <div class="m-pageNav -footer -twoColumns">
                         <ul class="m-pageNav__list">
-                            <li class="m-pageNav__item m-pageNav__heading -activeFo" onclick="myFunction()" data-ripple="inverted"><span class="m-pageNav__link -colorLightin -bold"><?php echo $nameSection[$i]; ?></span></li>
-                            <?php wp_nav_menu(
-                                    array(
-                                        'theme_location'  => 'footer_' . $numberKey[$i],
-                                        'container'       => '',
-                                        'items_wrap'      => '%3$s',
-                                        'walker'          => new FooterClassLiWalker(),
-                                    )
-                            ); ?>
+                            <li class="m-pageNav__item m-pageNav__heading -activeFo" onclick="myFunction(this);" id="<?php echo 'dropdown_' . $numberKey[$i]; ?>" data-ripple="inverted"><span class="m-pageNav__link -colorLightin -bold"><?php echo $nameSection[$i]; ?></span></li>
+                            <ul class="m-pageNav__group">
+                                <?php wp_nav_menu(
+                                        array(
+                                            'theme_location'  => 'footer_' . $numberKey[$i],
+                                            'container'       => '',
+                                            'items_wrap'      => '%3$s',
+                                            'walker'          => new FooterClassLiWalker(),
+                                        )
+                                ); ?>
+                            </ul>
                         </ul>
                     </div>
                 </nav>
@@ -36,15 +38,17 @@
                 <nav class="m-footer__menu">
                     <div class="m-pageNav -footer -oneColumns">
                         <ul class="m-pageNav__list">
-                            <li class="m-pageNav__item m-pageNav__heading -activeFo" onclick="myFunction()" data-ripple="inverted"><span class="m-pageNav__link -colorLightin -bold"><?php echo $nameSection[$i]; ?></span></li>
-                            <?php wp_nav_menu(
-                                    array(
-                                        'theme_location'  => 'footer_' . $numberKey[$i],
-                                        'container'       => '',
-                                        'items_wrap'      => '%3$s',
-                                        'walker'          => new FooterClassLiWalker(),
-                                    )
-                            ); ?>
+                            <li class="m-pageNav__item m-pageNav__heading -activeFo" onclick="myFunction(this);" id="<?php echo 'dropdown_' . $numberKey[$i]; ?>" data-ripple="inverted"><span class="m-pageNav__link -colorLightin -bold"><?php echo $nameSection[$i]; ?></span></li>
+                            <ul class="m-pageNav__group">
+                                <?php wp_nav_menu(
+                                        array(
+                                            'theme_location'  => 'footer_' . $numberKey[$i],
+                                            'container'       => '',
+                                            'items_wrap'      => '%3$s',
+                                            'walker'          => new FooterClassLiWalker(),
+                                        )
+                                ); ?>
+                            </ul>
                         </ul>
                     </div>
                 </nav>
@@ -53,15 +57,17 @@
                 <nav class="m-footer__menu">
                     <div class="m-pageNav -footer -oneColumns -cta">
                         <ul class="m-pageNav__list">
-                            <li class="m-pageNav__item m-pageNav__heading -activeFo" onclick="myFunction()" data-ripple="inverted"><span class="m-pageNav__link -colorLightin -bold"><?php echo $nameSection[$i]; ?></span></li>
-                            <?php wp_nav_menu(
-                                    array(
-                                        'theme_location'  => 'footer_' . $numberKey[$i],
-                                        'container'       => '',
-                                        'items_wrap'      => '%3$s',
-                                        'walker'          => new FooterClassButtonWalker(),
-                                    )
-                            ); ?>
+                            <li class="m-pageNav__item m-pageNav__heading -activeFo" onclick="myFunction(this);" id="<?php echo 'dropdown_' . $numberKey[$i]; ?>" data-ripple="inverted"><span class="m-pageNav__link -colorLightin -bold"><?php echo $nameSection[$i]; ?></span></li>
+                            <ul class="m-pageNav__group">
+                                <?php wp_nav_menu(
+                                        array(
+                                            'theme_location'  => 'footer_' . $numberKey[$i],
+                                            'container'       => '',
+                                            'items_wrap'      => '%3$s',
+                                            'walker'          => new FooterClassButtonWalker(),
+                                        )
+                                ); ?>
+                            </ul>
                         </ul>
                     </div>
                 </nav>
