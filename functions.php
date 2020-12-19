@@ -13,18 +13,30 @@ function init_template() {
 
 add_action('after_setup_theme', 'init_template');
 
+add_theme_support( 'custom-header' );
+add_theme_support( 'custom-logo' );
+
+function noSticky( $query ) {
+    if ( ! is_admin() && $query->is_main_query() ) {
+        $query->set( 'ignore_sticky_posts', 1 );
+    }
+}
+
+add_filter( 'pre_get_posts', 'noSticky' );
+
 function assets() {
-    $ver = 1.1;
+    $ver = 1.5;
     wp_register_style( 'rubik', 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', '', $ver , 'all' );
     wp_register_style( 'Frank Ruhl Libre', 'https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap', '', $ver, 'all' );
 
     wp_register_style( 'category', get_template_directory_uri( ).'/assets/css/categories.css', '', $ver, 'all' );
     wp_register_style( 'front-page', get_template_directory_uri( ).'/assets/css/front-page.css', '', $ver, 'all' );
     wp_register_style( 'single', get_template_directory_uri( ).'/assets/css/single.css', '', $ver, 'all' );
+    wp_register_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css','','5.0.0', 'all');
 
-    wp_enqueue_style( 'style', get_stylesheet_uri(  ) , array(  'rubik', 'Frank Ruhl Libre', 'front-page', 'single', 'category' ), $ver, 'all' );
-
+    wp_enqueue_style( 'style', get_stylesheet_uri(  ) , array(  'bootstrap', 'rubik', 'Frank Ruhl Libre', 'front-page', 'single', 'category' ), $ver, 'all' );
     wp_enqueue_script( 'jscustom', get_template_directory_uri( ).'/assets/js/custom.js', '', $ver, true );
+    wp_enqueue_script( 'bootstrap_js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js', '', '5.0.0', true );
 }
 
 // Para que se cargue cuando al inicio de la página
@@ -40,7 +52,7 @@ class ClassLiWalker extends Walker_Nav_Menu {
        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
 
        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
-       $class_names = ' class="'. esc_attr( $class_names ) . '"';
+       $class_names = ' class="' . esc_attr( $class_names ) . '"';
 
        $output .= $indent . '<li class="a-menuItem" id="menu-item-'. $item->ID . '" >';
 
@@ -283,10 +295,10 @@ function add_class_the_author_link($html) {
 }
 add_filter('the_author_posts_link','add_class_the_author_link');
 
-function replace_category_name($html) {
-    $html = str_replace('<a m-pageNav__link','<a class="-byLink -uppercase -bold"', $html);
-    return $html;
-}
+// function replace_category_name($html) {
+//     $html = str_replace('<a m-pageNav__link','<a class="-byLink -uppercase -bold"', $html);
+//     return $html;
+// }
 
 // Function del breadcrumbs
 function the_breadcrumb() {
@@ -299,11 +311,7 @@ function the_breadcrumb() {
 		if (is_category() || is_single()) {
 			foreach((get_the_category()) as $category) {
                 if(!$category->parent && $closeCat == 0) { 
-                    echo '<a class="-categoryLink"  href="'; 
-                    echo get_category_link( $category );
-                    echo '"> ';
-                    echo $category->cat_name;
-                    echo '</a>';
+                    echo '<a class="-categoryLink"  href="' . get_category_link( $category ) . '"> ' . $category->cat_name . '</a>';
                     $closeCat++;
                 }
             }
@@ -486,3 +494,63 @@ function copyright() {
     );
 }
 add_action('widgets_init', 'copyright');
+
+function the_ads($position) {
+    $args = array(
+        'post_type' => 'publicidad',
+        'posts_per_page' => 1,
+        'meta_key'		=> 'posicion_ad',
+        'meta_value'	=> $position,
+        'order' => 'DESC',
+        'orderby' => 'date'
+    );
+    $the_query = new WP_Query($args);
+
+    if ($the_query->have_posts()) {
+        while ($the_query->have_posts()) {
+            $the_query->the_post(  );
+
+            $url = get_field('url_ad');
+            $image = get_field('imagen_ad');
+
+            echo '<div class="m-section__ad">';
+            echo '<div class="m-ad">';
+                echo '<a href="' . esc_url($url) . '" class="m-ad__link m-ad__3x2 m-ad__boxed" target="_blank">';
+                    echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '" class="m-crop__img m-ad__img">';
+                echo '</a>';
+            echo '</div>';
+            echo '</div>';
+            echo '<!-- .m-section__ad -->';
+        }
+    } 
+}
+function the_category_child() {
+    foreach((get_the_category()) as $category) {
+        if($category->parent) { 
+            echo $category->cat_name; 
+        }
+    }
+}
+
+function pagination_anterior_siguiente() {
+    global $the_query;
+ 
+    if ( $the_query->max_num_pages > 1 ) { ?>
+        <div class="m-category__item -pdTopLg">
+            <div class="m-pagination">
+                <?php posts_nav_link( ' ', 'Anterior', 'Siguiente' ); ?>
+            </div>
+        </div>
+<?php }
+ wp_reset_postdata();
+}
+
+function n_posts_link_attributes() {
+    return 'class="a-btn a-pagination__btn -semiBold -uppercase -right"';
+}
+function p_posts_link_attributes() {
+    return 'class="a-btn a-pagination__btn -semiBold -uppercase"';
+}
+
+add_filter('next_posts_link_attributes', 'n_posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'p_posts_link_attributes');

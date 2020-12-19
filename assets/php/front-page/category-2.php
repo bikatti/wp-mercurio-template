@@ -37,7 +37,7 @@
                         'post_type' => 'post',
                         'posts_per_page' => 6,
                         'cat' => 5,
-                        'order' => 'ASC',
+                        'order' => 'DESC',
                         'orderby' => 'date'
                     );
                     $headlines = new WP_Query($args);
@@ -48,32 +48,19 @@
                             ?>
                                 <div class="m-cards__gridItem">
                                     <article class="m-card m-card__grid">
-                                        <a href="<?php the_permalink( ); ?>" class="m-card__wrap">
-                                            <figure class="m-card__img">
-                                                <div class="m-crop m-crop__ratio3x2"><?php the_post_thumbnail( 'medium_large', ['class' => 'm-crop__img -headline'] ); ?></div>
-                                            </figure>
+                                        <a href="<?php echo esc_url(the_permalink( )); ?>" class="m-card__wrap">
+                                            <figure class="m-card__img"><div class="m-crop m-crop__ratio3x2"><?php the_post_thumbnail( 'medium_large', ['class' => 'm-crop__img -headline'] ); ?></div></figure>
                                             <!-- figure.m-card__img -->
                                             <header class="m-card__header">
                                                 <h3 class="m-card__heading -bold"><?php the_title(); ?></h3>
-                                                <div class="m-card__tag -bold -uppercase">
-                                                    <span class="m-card__featuredTag -bold -uppercase">
-                                                        <?php 
-                                                            foreach((get_the_category()) as $category) {
-                                                                if($category->parent) { 
-                                                                    // check if this category has a parent
-                                                                    echo $category->cat_name; 
-                                                                }
-                                                            }
-                                                        ?>
-                                                    </span>
-                                                </div>
+                                                <div class="m-card__tag -bold -uppercase"><span class="m-card__featuredTag -bold -uppercase"><?php the_category_child(); ?></span></div>
                                                 <p class="m-card__byLine -copy">Por <?php echo get_the_author( ); ?> </p>
-                                                <p class="m-card__lead -copy"> <?php echo get_the_excerpt(); ?> </p>
-
+                                                <p class="m-card__lead -copy"> <?php echo esc_html(get_the_excerpt()); ?> </p>
                                             </header>
                                         </a>
                                     </article>
                                 </div>
+                                <!-- .m-cards__gridItem -->
                             <?php
                         }
                     } 
@@ -82,6 +69,7 @@
             <!-- .m-cards__grid -->
         </div>
         <div class="m-section__sidebar">
+            <?php the_ads('3'); ?>
             <div class="m-section__sticky -sizeGrow">
                 <div class="m-sticky__item -sticky">
                     <a href="#" class="m-theList">

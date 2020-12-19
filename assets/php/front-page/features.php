@@ -3,22 +3,22 @@
         <?php 
             $args = array(
                 'post_type' => $contents,
-                'posts_per_page' => 15,
+                'posts_per_page' => 8,
+                'meta_key'		=> 'seccion_destacada',
+                'meta_value'	=> true,
                 'order' => 'DESC',
                 'orderby' => 'date'
             );
             $headlines = new WP_Query($args);
             $iter = 0;
-            $max = 1;
             
             if ($headlines->have_posts()) {
                 while ($headlines->have_posts()) {
                     $headlines->the_post(  );
                     $sticky = get_field('seccion_destacada', get_the_ID());
 
-                    if($iter == 0 && $sticky == 1 && $max <= 6) {
+                    if($iter == 0) {
                         $iter++;
-                        $max++;
                     ?>
                         <article class="m-features__main">
                             <a href="<?php the_permalink( ); ?>" class="m-featuresMain__wrap">
@@ -42,9 +42,7 @@
             <a href="" class="m-slider__nav -navLeft -isHidden" data-slider-nav="prev"></a>
             <a href="" class="m-slider__nav -navRight" data-slider-nav="next"></a>
             <div class="m-slider__track" data-slider-track style="transform: translateX(0px);">
-                    <?php } elseif (!$iter == 0 && $sticky == 1 && $max <= 6) {
-                            $max++;
-                            ?>
+                    <?php } else { ?>
                             <article class="m-features__item m-slider__item"" data-slider-item>
                                 <a href="<?php the_permalink( ); ?>" class="m-featuresItem__wrap">
                                     <figure class="m-featuresItem__img">
@@ -60,9 +58,7 @@
                             </article>
                             <!-- .m-features__item -->
                     <?php
-                        } else {
-                            # code...
-                        }
+                        } 
                     }
                 } 
             ?> 

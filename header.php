@@ -12,8 +12,12 @@
         <div class="m-header__wrap">
             <div class="m-header__content">
                 <div class="m-header__brand">
+                    <?php 
+                        $custom_logo_id = get_theme_mod( 'custom_logo' );
+                        $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+                    ?>
                     <a href="<?php echo home_url( ); ?>">
-                        <img src="<?php echo get_template_directory_uri(  ); ?>/assets/img/brand/logotipo.png" alt="logo de The Rolling Stone">
+                        <img src="<?php echo $image[0]; ?>" alt="logotipo de <?php echo esc_attr( get_bloginfo('name') ); ?>">
                     </a>
                 </div>
                 <div class="m-header__block -left -semiBold">
@@ -50,7 +54,7 @@
             </div>
             <div class="m-header__content m-header__sticky ">
                 <a href="<?php echo home_url( ); ?>" class="m-header__brand m-header__brandFixed">
-                    <img src="<?php echo get_template_directory_uri(  ); ?>/assets/img/brand/logotipo.png" alt="logo de The Rolling Stone">
+                    <img src="<?php echo $image[0]; ?>" alt="logotipo de <?php echo esc_attr( get_bloginfo('name') ); ?>">
                 </a>
                 <!-- .m-header__brandFixed -->
                 <div class="m-header__toggle m-header__toggleSticky">

@@ -4,7 +4,9 @@
             <?php 
                 $args = array(
                     'post_type' => $contents,
-                    'posts_per_page' => 20,
+                    'posts_per_page' => 1,
+                    'meta_key'		=> 'titular_principal',
+                    'meta_value'	=> true,
                     'order' => 'DESC',
                     'orderby' => 'date'
                 );
@@ -14,11 +16,6 @@
                 if ($headlines->have_posts()) {
                     while ($headlines->have_posts()) {
                         $headlines->the_post(  );
-                        $sticky = get_field('titular_principal', get_the_ID(  ));
-                        
-                        if($sticky == 1 && $max <= 1) {
-                            $iter++;
-                            $max++;
                         ?>
                             <div class="m-mainHeader__item">
                                 <article class="m-card m-card__overlay -home">
@@ -30,16 +27,7 @@
                                         <!-- figure.m-card__img -->
                                         <header class="m-card__header">
                                             <h3 class="m-card__heading -bold -colorLightin"><?php the_title(); ?></h3>
-                                            <div class="m-card__tag -bold -uppercase">
-                                                <span class="m-card__featuredTag"><?php 
-                                                        foreach((get_the_category()) as $category) {
-                                                            if($category->parent) { 
-                                                            // check if this category has a parent
-                                                            echo $category->cat_name; 
-                                                            }
-                                                        }
-                                                ?></span>
-                                            </div>
+                                            <div class="m-card__tag -bold -uppercase"><span class="m-card__featuredTag"><?php the_category_child(); ?></span></div>
                                             <p class="m-card__lead -colorLightin"> <?php echo get_the_excerpt(); ?> </p>
                                         </header>
                                     </a>
@@ -48,19 +36,26 @@
                                 <!-- article.m-card__overlay -->
                             </div>
                             <!-- m-mainHeader__item -->
-                    <?php }
+                    <?php
                     }
                 }
 
-                // Segunda parte de los titulares
-                if ($headlines->have_posts()) {
-                    while ($headlines->have_posts()) {
-                        $headlines->the_post(  );
+                $args_query = array(
+                    'post_type' => $contents,
+                    'posts_per_page' => 2,
+                    'meta_key'		=> 'titulares_importantes',
+                    'meta_value'	=> true,
+                    'order' => 'DESC',
+                    'orderby' => 'date'
+                );
+                $query = new WP_Query($args_query);
 
-                        $importants = get_field('titulares_importantes', get_the_ID(  ));
-                        if ($importants == 1 && $max <= 3) {
-                            $max++;
-                            ?>
+                // Segunda parte de los titulares
+                if ($query->have_posts()) {
+                    while ($query->have_posts()) {
+                        $query->the_post(  );
+
+                        ?>
                             <div class="m-mainHeader__item">
                                 <article class="m-card -ftHome">
                                     <a href="<?php the_permalink( ); ?>" class="m-card__wrap">
@@ -70,25 +65,13 @@
                                         <!-- figure.m-card__img -->
                                         <header class="m-card__header">
                                             <h3 class="m-card__heading -bold"><?php the_title(); ?></h3>
-                                            <div class="m-card__tag -bold -uppercase">
-                                                <span class="m-card__featuredTag">
-                                                    <?php 
-                                                        foreach((get_the_category()) as $category) {
-                                                            if($category->parent) { 
-                                                                // check if this category has a parent
-                                                                echo $category->cat_name; 
-                                                            }
-                                                        }
-                                                    ?>
-                                                </span>
-                                            </div>
+                                            <div class="m-card__tag -bold -uppercase"><span class="m-card__featuredTag"><?php the_category_child(); ?></span></div>
                                         </header>
                                     </a>
                                 </article>
                             </div>
                             <!-- m-mainHeader__item [secondary|tertiary] -->
                     <?php
-                        }
                     }
                 }
             ?> 
@@ -114,24 +97,12 @@
                     while ($headlines->have_posts()) {
                         $headlines->the_post(  );
                         ?>
-
                         <div class="m-lastestList__item">
                             <article class="m-card -excerpt">
                                 <a href="<?php the_permalink( ); ?>" class="m-card__wrap ">
                                     <header class="m-card__header">
                                         <h3 class="m-card__heading -copy"><?php the_title(); ?></h3>
-                                        <div class="m-card__tag -bold -uppercase">
-                                            <span class="m-card__featuredTag">
-                                                <?php 
-                                                    foreach((get_the_category()) as $category) {
-                                                        if($category->parent) { 
-                                                            // check if this category has a parent
-                                                            echo $category->cat_name; 
-                                                        }
-                                                    }
-                                                ?>
-                                            </span>
-                                        </div>
+                                        <div class="m-card__tag -bold -uppercase"><span class="m-card__featuredTag"><?php the_category_child(); ?></span></div>
                                     </header>
                                 </a>
                             </article>
@@ -180,6 +151,9 @@
                 </ol>
             </div>
         </div>
+        <!-- .m-headline__sidebar -->
+
+        <?php the_ads('1'); ?>
     </aside>
     <!-- .m-headline__sidebar -->
 </div>

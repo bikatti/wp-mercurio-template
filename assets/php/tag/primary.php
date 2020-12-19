@@ -5,11 +5,11 @@
     <!-- .m-category__item -->
 
     <?php $tag = get_queried_object();
-        // $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+        $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         $args = array(
             'tag_id' => $tag->term_id,
-            'posts_per_page' => 6,
-            // 'paged' => $paged
+            'posts_per_page' => 5,
+            'paged' => $paged
         );
         $the_query = new WP_Query($args);
 
@@ -29,18 +29,7 @@
                                         </figure>
                                         <header class="m-card__header">
                                             <h3 class="m-card__heading -bold "><?php the_title(  ); ?></h3>
-                                            <div class="m-card__tag -bold -uppercase">
-                                                <span class="m-card__featuredTag">
-                                                    <?php 
-                                                        foreach((get_the_category()) as $category) {
-                                                            if($category->parent) { 
-                                                                // check if this category has a parent
-                                                                echo $category->cat_name; 
-                                                            }
-                                                        }
-                                                    ?>
-                                                </span>
-                                            </div>
+                                            <div class="m-card__tag -bold -uppercase"><span class="m-card__featuredTag"><?php the_category_child(); ?></span></div>
                                             <div class="m-card__byLine -semiBold -uppercase -loose">Por <?php the_author( ); ?></div>
                                             <div class="m-card__lead"><?php the_excerpt(  ); ?></div>
                                         </header>
@@ -53,13 +42,7 @@
             </div>
             <!-- .m-category__item -->
 
-            <div class="m-category__item -pdTopLg">
-                <div class="m-pagination">
-                    <?php echo 'Aquí el next' ?>
-                </div>
-            </div>
+            <?php pagination_anterior_siguiente(); ?>
             <!-- .m-category__item -->
-    <?php } else {?>
-            <h1>No hay contenido</h1>
-    <?php }?>
+    <?php } ?>
 </main>

@@ -9,11 +9,11 @@
         <div class="m-authorBio__meta">
             <h1 class="m-authorBio__heading -bold"><?php echo $curauth->nickname; ?></h1>
             <!-- .m-authorBio__heading -->
-            <?php if ( $curauth->user_description ) : ?>
+            <?php if ( $curauth->user_description ) { ?>
                 <div id="m-authorBio__desWrap">
                     <p class="m-authorBio__des"><?php echo $curauth->user_description; ?></p>
                 </div>
-            <?php endif; ?>
+            <?php } ?>
         </div>
     </section>
 
@@ -23,11 +23,11 @@
     <!-- .m-category__item -->
 
     <?php
-        // $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+        $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         $args = array(
             'author' => $curauth->ID,
-            'posts_per_page' => 25,
-            // 'paged' => $paged
+            'posts_per_page' => 5,
+            'paged' => $paged
         );
         $the_query = new WP_Query($args);
 
@@ -71,11 +71,7 @@
             </div>
             <!-- .m-category__item -->
 
-            <div class="m-category__item -pdTopLg">
-                <div class="m-pagination">
-                    <?php echo 'Aquí el next' ?>
-                </div>
-            </div>
+            <?php pagination_anterior_siguiente(); ?>
             <!-- .m-category__item -->
     <?php } else {?>
             <h1>No hay contenido</h1>

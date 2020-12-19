@@ -46,37 +46,95 @@ function hideShow() {
     }
 }
 
-/* When the user clicks on the button, 
-closes every dropdowns and open the only one passed as argument */
 
-/* Javascript only */
-function myFunction(element) {
-  let dropdowns = document.getElementsByClassName("m-pageNav__group");
-  
-  // element.nextSibling is the carriage return… The dropdown menu is the next next.
-  let thisDropdown = element.nextSibling.nextSibling;
-  
-  if (!thisDropdown.classList.contains('-visible')) {  // Added to hide dropdown if clicking on the one already open
-    let i;
-    for (i = 0; i < dropdowns.length; i++) {
-      dropdowns[i].classList.remove('-visible');
+// Dropdown 
+let mediaQueries = window.matchMedia('screen and (max-width: 768px)')
+let classDrop = document.getElementsByClassName('m-pageNav__item m-pageNav__heading')
+let numberDrop = ['one','two','three','four']
+
+let classDropMenu = document.getElementsByClassName('m-menuOutNav__expander')
+let numberMenu = ['one','two','three','four', 'five', 'six', 'seven', 'eight']
+
+let submenuDrop = document.getElementsByClassName('m-pageNav__item -active')
+
+
+mediaQueries.addListener(dropdownMenu)
+mediaQueries.addListener(dropdownSubmenu)
+mediaQueries.addListener(dropdownBootstrap)
+
+function dropdownBootstrap(media) {
+  if (media.matches) {
+    // If media query matches
+    for (let i = 0; i < classDrop.length; i++) {
+      let idDropCollapse = document.getElementById(`dropdown_${numberDrop[i]}`)
+
+      // Drop Footer
+      classDrop[i].setAttribute("data-bs-toggle", "collapse")
+      classDrop[i].setAttribute("data-bs-target", `#dropdown_${numberDrop[i]}`)
+      classDrop[i].setAttribute("aria-controls", `dropdown_${numberDrop[i]}`)
+      idDropCollapse.classList.add('collapse')
+    }
+  } else {
+    for (let i = 0; i < classDrop.length; i++) {
+      let idDropCollapse = document.getElementById(`dropdown_${numberDrop[i]}`)
+
+      classDrop[i].removeAttribute("data-bs-toggle", "collapse")
+      classDrop[i].removeAttribute("data-bs-target", `#dropdown_${numberDrop[i]}`)
+      classDrop[i].removeAttribute("aria-controls", `dropdown_${numberDrop[i]}`)
+      idDropCollapse.classList.remove('collapse')
     }
   }
-  
-  // Toggle the dropdown on the element clicked
-  thisDropdown.classList.toggle("-visible");
 }
 
-/* W3Schools function to close the dropdown when clicked outside. */
-window.onclick = function(event) {
-  if (!event.target.matches('.m-pageNav__heading')) {
-    let dropdowns = document.getElementsByClassName("m-pageNav__group");
-    let i;
-    for (i = 0; i < dropdowns.length; i++) {
-      let openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('-visible')) {
-        openDropdown.classList.remove('-visible');
-      }
+
+function dropdownMenu(media) {
+  if (media.matches) {
+    // If media query matches
+    for (let i = 0; i < classDropMenu.length; i++) {
+      let idMenuCollapse = document.getElementById(`menuDrop_${numberMenu[i]}`)
+
+      // Drop Menu
+      classDropMenu[i].setAttribute("data-bs-toggle", "collapse")
+      classDropMenu[i].setAttribute("data-bs-target", `#menuDrop_${numberMenu[i]}`)
+      classDropMenu[i].setAttribute("aria-controls", `menuDrop_${numberMenu[i]}`)
+      idMenuCollapse.classList.add('collapse')
+    }
+  } else {
+    for (let i = 0; i < classDropMenu.length; i++) {
+      let idMenuCollapse = document.getElementById(`menuDrop_${numberMenu[i]}`)
+
+      classDropMenu[i].removeAttribute("data-bs-toggle", "collapse")
+      classDropMenu[i].removeAttribute("data-bs-target", `#menuDrop_${numberMenu[i]}`)
+      classDropMenu[i].removeAttribute("aria-controls", `menuDrop_${numberMenu[i]}`)
+      idMenuCollapse.classList.remove('collapse')
     }
   }
 }
+
+
+function dropdownSubmenu(media) {
+  if (media.matches) {
+    // If media query matches
+    for (let i = 0; i < submenuDrop.length; i++) {
+      let idSubmenuCollapse = document.getElementById(`dropSubMenu_one`)
+
+      submenuDrop[i].setAttribute("data-bs-toggle", "collapse")
+      submenuDrop[i].setAttribute("data-bs-target", `#dropSubMenu_one`)
+      submenuDrop[i].setAttribute("aria-controls", `dropSubMenu_one`)
+      idSubmenuCollapse.classList.add('collapse')
+    }
+  } else {
+    for (let i = 0; i < submenuDrop.length; i++) {
+      let idSubmenuCollapse = document.getElementById(`dropSubMenu_one`)
+
+      submenuDrop[i].setAttribute("data-bs-toggle", "collapse")
+      submenuDrop[i].setAttribute("data-bs-target", `#dropSubMenu_one`)
+      submenuDrop[i].setAttribute("aria-controls", `dropSubMenu_one`)
+      idSubmenuCollapse.classList.remove('collapse')
+    }
+  }
+}
+
+dropdownMenu(mediaQueries)
+dropdownSubmenu(mediaQueries)
+dropdownBootstrap(mediaQueries)

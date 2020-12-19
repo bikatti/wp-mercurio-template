@@ -12,23 +12,22 @@
         <nav class="m-sectionTop__menu">
             <div class="m-pageNav -header">
                 <ul class="m-pageNav__list">
-                    <li class="m-pageNav__item -active" data-ripple>
-                        <a class="m-pageNav__link -colorLightin" href="<?php echo esc_url("$categoryId->slug"); ?>">All</a>
+                    <li class="m-pageNav__item -active" data-bs-toggle data-bs-target aria-expanded="false" aria-controls data-ripple>
+                        <a class="m-pageNav__link -colorLightin" href="<?php echo esc_url(get_category_link($categoryId->term_id) ); ?>">All</a>
                     </li>
-                    <ul class="m-pageNav__group">
+                    <ul class="m-pageNav__group " id="dropSubMenu_one">
                         <?php
                             $close = 1;
                             foreach ($categories as $category) {
                                 $catMenu = get_field('submenu_catpage', $category);
                                 
-                                if($category->parent && $catMenu == 1 && $close <= 4) :
+                                if($category->parent && $catMenu == 1 && $close <= 4) {
                                     $close++;
                                     ?>
                                     <li class="m-pageNav__item" data-ripple>
-                                        <a class="m-pageNav__link -colorLightin"  href="<?php echo esc_url("$category->slug"); ?>"> <?php echo esc_html("$category->name"); ?></a>
+                                        <a class="m-pageNav__link -colorLightin" href="<?php echo esc_url(get_category_link($category->term_id) );  ?>"> <?php echo esc_html("$category->name"); ?></a>
                                     </li>
-                            <?php
-                                endif;
+                            <?php }
                                 str_replace('Deporte ','Deporte', '');
                             }
                         ?>
