@@ -13,7 +13,7 @@
             <div class="m-pageNav -header">
                 <ul class="m-pageNav__list">
                     <li class="m-pageNav__item -active" data-bs-toggle data-bs-target aria-expanded="false" aria-controls data-ripple>
-                        <a class="m-pageNav__link -colorLightin" href="<?php echo esc_url(get_category_link($categoryId->term_id) ); ?>">All</a>
+                        <a class="m-pageNav__link -colorLightin" href="<?php echo esc_url(get_category_link($categoryId->term_id) ); ?>">Todos <?php __( 'Todos', 'text_domain'); ?></a>
                     </li>
                     <ul class="m-pageNav__group " id="dropSubMenu_one">
                         <?php

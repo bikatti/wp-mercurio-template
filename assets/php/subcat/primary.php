@@ -1,4 +1,4 @@
-<main class="m-category__primary">
+<main class="m-category__primary -subcat">
     <div class="m-category__item -pdTopXl">
         <div class="m-section__header">&nbsp;</div>
     </div>
@@ -8,6 +8,7 @@
         $subcategory = get_queried_object();
         $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         $args = array(
+            'post_type' => $contents,
             'cat' => $subcategory->term_id,
             'posts_per_page' => 5,
             'paged' => $paged

@@ -5,7 +5,7 @@
             <ol class="m-trending__list">
                 <?php 
                     $args = array(
-                        'post_type' => ['post','headliner'],
+                        'post_type' => $contents,
                         'posts_per_page' => 5,
                         'meta_key' => 'wpb_post_views_count',
                         'orderby'=>'meta_value_num', 

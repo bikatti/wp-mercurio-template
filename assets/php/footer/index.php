@@ -8,10 +8,10 @@
                 4 => 'four'
             ];
             $nameSection = [
-                1 => 'Magazine',
-                2 => 'Legal',
-                3 => 'Connect With us',
-                4 => 'subscriptions'
+                1 => 'Categorías',
+                2 => 'Editorial',
+                3 => 'Síguenos',
+                4 => 'Suscripciones'
             ];
 
             if ($i === 1) {
@@ -78,7 +78,7 @@
 </div>
 
 <div class="m-footer__newsletter">
-    <p class="m-footerNL__heading -colorLightin -bold">Únete al Newsletter</p>
+    <p class="m-footerNL__heading -colorLightin -bold">Suscribete al Newsletter</p>
     <div class="m-footerNL__form">
         <form class="m-form -footer" action="" method="post">
             <div class="m-form__group">
@@ -94,9 +94,9 @@
 </div>
 
 <div class="m-footer__tip">
-    <p class="m-footerTip__heading -colorLightin -bold">Algún Tip?</p>
-    <div class="m-footerTip__body">Queremos oir lo que quieres dicer! Envianoslo a traves de nuestra forma anonima.</div>
-    <a href="#" class="m-footerTip__link -colorLightin -bold">Enviar Tip</a>
+    <p class="m-footerTip__heading -colorLightin -bold">¿Sugerencías?</p>
+    <div class="m-footerTip__body">Tus recomendaciones son importantes para nosotros.</div>
+    <a href="#" class="m-footerTip__link -colorLightin -bold">Enviar</a>
     <?php 
         $custom_logo_id = get_theme_mod( 'custom_logo' );
         $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );

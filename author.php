@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php get_header(); 
+      $contents = ['post', 'video'];
+?>
 
 <div class="o-content">
     <div class="o-category">

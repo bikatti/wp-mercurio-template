@@ -1,21 +1,34 @@
 <main class="m-category__primary">
     <?php $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author)); ?>
     
-    <section class="m-authorBio">
-        <figure class="m-authorBio__profile">
-            <?php echo get_avatar( $curauth->user_email , $size, $default, $alt, array( 'class' => array( 'm-authorBio__thumb' ))); ?>
-        </figure>
-        
-        <div class="m-authorBio__meta">
-            <h1 class="m-authorBio__heading -bold"><?php echo $curauth->nickname; ?></h1>
-            <!-- .m-authorBio__heading -->
-            <?php if ( $curauth->user_description ) { ?>
-                <div id="m-authorBio__desWrap">
-                    <p class="m-authorBio__des"><?php echo $curauth->user_description; ?></p>
+    <?php 
+        $image = get_field('imagen_users', 'user_' . $curauth->ID);
+        if( !empty( $image ) ) { ?>
+            <section class="m-authorBio">
+                <figure class="m-authorBio__profile"><img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="m-authorBio__thumb" /></figure>
+                
+                <div class="m-authorBio__meta">
+                    <h1 class="m-authorBio__heading -bold"><?php echo $curauth->nickname; ?></h1>
+                    <!-- .m-authorBio__heading -->
+                    <?php if ( $curauth->user_description ) { ?>
+                        <div id="m-authorBio__desWrap">
+                            <p class="m-authorBio__des"><?php echo $curauth->user_description; ?></p>
+                        </div>
+                    <?php } ?>
                 </div>
-            <?php } ?>
-        </div>
-    </section>
+            </section>
+        <?php } else {
+            ?>
+                <div class="m-authorBio__meta">
+                    <h1 class="m-authorBio__heading -bold"><?php echo $curauth->nickname; ?></h1>
+                    <!-- .m-authorBio__heading -->
+                    <?php if ( $curauth->user_description ) { ?>
+                        <div id="m-authorBio__desWrap">
+                            <p class="m-authorBio__des"><?php echo $curauth->user_description; ?></p>
+                        </div>
+                    <?php } ?>
+                </div>
+        <?php } ?>
 
     <div class="m-category__item -pdTopXl">
         <div class="m-section__header">&nbsp;</div>
@@ -25,6 +38,7 @@
     <?php
         $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         $args = array(
+            'post_type' => $contents,
             'author' => $curauth->ID,
             'posts_per_page' => 5,
             'paged' => $paged

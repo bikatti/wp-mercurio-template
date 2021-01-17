@@ -6,9 +6,13 @@
     <div class="m-menuOut__wrap">
         <div class="m-menuOut__row">
             <a href="<?php echo home_url( ); ?>" class="m-menuOut__branding">
-                <img class="m-menuOut__logo" src="<?php echo get_template_directory_uri(  ); ?>/assets/img/brand/logotipo.png" alt="logo de The Rolling Stone">
+                <?php 
+                    $custom_logo_id = get_theme_mod( 'custom_logo' );
+                    $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+                ?>
+                <img class="m-menuOut__logo" src="<?php echo $image[0]; ?>" alt="logotipo de <?php echo esc_attr( get_bloginfo('name') ); ?>">
             </a>
-            
+
             <div class="m-menuOut__search">
                 <form role="search" method="GET" action="<?php echo home_url( ); ?>" data-st-search-form="search_form">
                     <div class="m-searchInputAuto">

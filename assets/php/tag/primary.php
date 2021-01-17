@@ -7,6 +7,7 @@
     <?php $tag = get_queried_object();
         $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         $args = array(
+            'post_type' => $contents,
             'tag_id' => $tag->term_id,
             'posts_per_page' => 5,
             'paged' => $paged

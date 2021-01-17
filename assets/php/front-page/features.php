@@ -43,7 +43,7 @@
             <a href="" class="m-slider__nav -navRight" data-slider-nav="next"></a>
             <div class="m-slider__track" data-slider-track style="transform: translateX(0px);">
                     <?php } else { ?>
-                            <article class="m-features__item m-slider__item"" data-slider-item>
+                            <article class="m-features__item m-slider__item" data-slider-item>
                                 <a href="<?php the_permalink( ); ?>" class="m-featuresItem__wrap">
                                     <figure class="m-featuresItem__img">
                                         <div class="m-crop m-crop__ratio11x14"><?php the_post_thumbnail( 'large', ['class' => 'm-crop__img -headline'] ); ?></div>

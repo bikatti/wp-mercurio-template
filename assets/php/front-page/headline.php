@@ -100,6 +100,9 @@
                         <div class="m-lastestList__item">
                             <article class="m-card -excerpt">
                                 <a href="<?php the_permalink( ); ?>" class="m-card__wrap ">
+                                    <figure class="m-card__img">
+                                        <div class="m-crop m-crop__ratio3x2"><?php the_post_thumbnail( 'medium_large', ['class' => 'm-crop__img -headline'] ); ?></div>
+                                    </figure>
                                     <header class="m-card__header">
                                         <h3 class="m-card__heading -copy"><?php the_title(); ?></h3>
                                         <div class="m-card__tag -bold -uppercase"><span class="m-card__featuredTag"><?php the_category_child(); ?></span></div>
@@ -112,7 +115,7 @@
                     <?php }
                 }
             ?>
-            <a href="#" class="m-lastestList__cta"><span class="-semiBold">Más noticias</span></a>
+            <a href="<?php echo get_month_link('', ''); ?>" class="m-lastestList__cta"><span class="-semiBold">Más noticias</span></a>
         </div>
     </div>
     <!-- .m-headline__list -->

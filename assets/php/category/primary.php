@@ -5,9 +5,13 @@
                 $imgClass = 'm-crop__img -headline';
                 $category = get_category( get_query_var( 'cat' ) );
                 $args = array(
+                    'post_type' => $contents,
                     'cat' => $category->term_id,
-                    'meta_key'		=> 'favorito_titulares',
+                    'meta_key'		=> 'titulares_de_categorias',
+                    'meta_value'	=> true,
                     'posts_per_page' => 3,
+                    'order' => 'DESC',
+                    'orderby' => 'date'
                 );
                 $the_query = new WP_Query($args);
                 $iter = 0;

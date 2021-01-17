@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-<?php   $contents = 'post';
+<?php   $contents = ['post', 'video'];
+        $stickyBox = 'Información actual variada, educativa y contenido acto para todo público';
         global $contents;
 ?>
 <div class="o-content">
@@ -8,14 +9,16 @@
     <!-- .o-headlines -->
     <?php require_once "assets/php/front-page/features.php"; ?>
     <!-- .o-section.-noSeparator.-withBottomMargin (_section-two.scss) -->
+    <?php require_once "assets/php/front-page/category-book.php"; ?>
+    <!-- .o-section (_section.scss/_reviews.scss/_cards.scss) -->
     <?php require_once "assets/php/front-page/lastest.php"; ?>
     <!-- .o-section.-noSeparator.-withBottomMargin (_section-tree.scss) -->
-    <?php require_once "assets/php/front-page/category-1.php"; ?>
-    <!-- .o-section (_section.scss/_reviews.scss/_cards.scss) -->
-    <?php require_once "assets/php/front-page/category-2.php"; ?>
+    <?php // require_once "assets/php/front-page/category-author.php"; ?>
     <!-- .o-section (_section.scss/_reviews.scss/_cards.scss) -->
     <?php require_once "assets/php/front-page/category-3.php"; ?>
     <!-- .o-section (_section.scss/_reviews.scss/_cards.scss) -->
+    <?php require_once "assets/php/front-page/video.php"; ?>
+    <!-- .o-section -->
     <?php require_once "assets/php/front-page/category-4.php"; ?>
     <!-- .o-section (_section.scss/_reviews.scss/_cards.scss) -->
     <?php require_once "assets/php/front-page/last-category.php"; ?>

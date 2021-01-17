@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php get_header(); 
+      $contents = ['post', 'video'];
+?>
 
 <?php require_once "assets/php/tag/header.php"; ?>
 <!-- .o-sectionTop -->
