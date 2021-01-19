@@ -7,6 +7,9 @@
     <div class="m-footer">
         <?php require_once "assets/php/footer/index.php"; ?>
     </div>
+    <!-- <div class="m-firm">
+        <?php //require_once "assets/php/footer/firm.php"; ?>
+    </div> -->
 </footer>
 
 <?php wp_footer(  ); ?>

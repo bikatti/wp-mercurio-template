@@ -29,7 +29,7 @@
                     </a>
                 </div>
                 <div class="m-header__block -left -semiBold">
-                    <a href="#" class="-linkHeader -onTop">Enviar un Tip</a>
+                    <a href="<?php echo home_url( 'contactar' ); ?>" class="-linkHeader -onTop">Enviar sugerencias</a>
                 </div>
                 <div class="m-header__block -right">
                     <div class="m-subscription__section -semiBold">

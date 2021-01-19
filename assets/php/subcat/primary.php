@@ -1,6 +1,6 @@
 <main class="m-category__primary -subcat">
     <div class="m-category__item -pdTopXl">
-        <div class="m-section__header">&nbsp;</div>
+        <div class="m-section__header"></div>
     </div>
     <!-- .m-category__item -->
 

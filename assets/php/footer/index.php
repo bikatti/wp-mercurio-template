@@ -11,7 +11,7 @@
                 1 => 'Categorías',
                 2 => 'Editorial',
                 3 => 'Síguenos',
-                4 => 'Suscripciones'
+                4 => 'Enlace de interés'
             ];
 
             if ($i === 1) {
@@ -94,9 +94,14 @@
 </div>
 
 <div class="m-footer__tip">
-    <p class="m-footerTip__heading -colorLightin -bold">¿Sugerencías?</p>
-    <div class="m-footerTip__body">Tus recomendaciones son importantes para nosotros.</div>
-    <a href="#" class="m-footerTip__link -colorLightin -bold">Enviar</a>
+    <div class="m-footerTip__heading m-firm__logo">
+        <a href="https://monlogo.co" target="_blank">
+            <img src="<?php echo get_template_directory_uri( ). '/assets/img/monlogo/imagotipo_white.png' ?>" alt="Logotipo de Monlogo">
+        </a>
+    </div>
+    <!-- <p class="m-footerTip__heading -colorLightin -bold">¿Sugerencías?</p> -->
+    <div class="m-footerTip__body">Desarrollado por Monlogo © Todos los derechos reservados por Monlogo</div>
+    <!-- <a href="#" class="m-footerTip__link -colorLightin -bold">Enviar</a> -->
     <?php 
         $custom_logo_id = get_theme_mod( 'custom_logo' );
         $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
@@ -105,5 +110,28 @@
 </div>
 
 <div class="m-footer__cover">
-    <img src="<?php esc_url(header_image(  )); ?>" alt="Imagen del footer" class="m-footerCover__image">
+<?php
+    $args = array(
+        'post_type' => 'publicidad',
+        'posts_per_page' => 1,
+        'meta_key'		=> 'posicion_ad',
+        'meta_value'	=> 5,
+        'order' => 'DESC',
+        'orderby' => 'date'
+    );
+    $the_query = new WP_Query($args);
+
+    if ($the_query->have_posts()) {
+        while ($the_query->have_posts()) {
+            $the_query->the_post(  );
+
+            $url = get_field('url_ad');
+            $image = get_field('imagen_ad');
+
+            echo '<a href="' . esc_url($url) . '" class="m-ad__link m-ad__3x2 m-ad__boxed" target="_blank">';
+                echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '" class="m-footerCover__image">';
+            echo '</a>';
+        }
+    }
+?>
 </div>

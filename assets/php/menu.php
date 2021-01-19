@@ -102,7 +102,7 @@
                 ); ?>
             </div>
             <div class="m-menuOut__block m-menuOut__blockLegal">
-                <span class="a-legalCompany -colorLightin">Nación Zeta</span>
+                <span class="a-legalCompany -colorLightin">Monlogo</span>
                 <?php dynamic_sidebar( 'cprt' );?>
             </div>
         </div>

@@ -7,12 +7,11 @@
             <?php 
                 $args = array(
                     'post_type' => 'video',
-                    'posts_per_page' => 6,
+                    'posts_per_page' => 1,
                     'order' => 'DESC',
                     'orderby' => 'date'
                 );
                 $the_query = new WP_Query($args);
-                $iter = 0;
 
                 if ($the_query->have_posts()) {
                     while ($the_query->have_posts()) {
@@ -33,8 +32,6 @@
 
                         $attributes = 'frameborder="0"';
                         $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
-                            if($iter == 0) {
-                                $iter++;
                             ?>
                                 <div class="m-videoCarousel__main">
                                     <article class="m-card m-card__video">
@@ -54,28 +51,7 @@
                                 </div>
                                 <!-- .m-m-videoCarousel__main -->
                             
-                
-                <div class="m-videoCarousel__slider m-slider">
-                    <a href="" class="m-slider__nav -navLeft -isHidden" data-slider-nav="prev"></a>
-                    <a href="" class="m-slider__nav -navRight" data-slider-nav="next"></a>
-                    <div class="m-slider__track" data-slider-track style="transform: translateX(0px);">
-                            <?php } else { ?>
-                                <div class="m-videoCarousel__item m-slider__item">
-                                    <article class="m-card m-card__videoThumb">
-                                        <a href="<?php the_permalink( ); ?>" class="m-card__wrap">
-                                            <figure class="m-card__img">
-                                                <div class="m-crop m-crop__ratio3x2"><?php the_post_thumbnail( 'large', ['class' => 'm-crop__img'] ); ?></div>
-                                                <!-- .m-crop -->
-                                            </figure>
-                                            <!-- figure.m-card__img -->
-                                            <header class="m-card__header"><h3 class="m-card__heading -bold -colorLightin"><?php the_title(); ?></h3></header>
-                                        </a>
-                                        <!-- m-card__wrap -->
-                                    </article>
-                                    <!-- m-card -->
-                                </div>
-                                <!-- .m-videoCarousel__item -->
-                            <?php }
+                            <?php 
                     }
                 }
             ?>

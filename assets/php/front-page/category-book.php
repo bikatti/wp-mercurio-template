@@ -5,7 +5,7 @@
                 $args = array(
                     'post_type' => $contents,
                     'posts_per_page' => 1,
-                    'cat' => 3,
+                    'cat' => 80,
                     'order' => 'DESC',
                     'orderby' => 'date'
                 );
@@ -36,7 +36,7 @@
                     $args = array(
                         'post_type' => $contents,
                         'posts_per_page' => 3,
-                        'cat' => 3,
+                        'cat' => 80,
                         'order' => 'DESC',
                         'orderby' => 'date'
                     );
