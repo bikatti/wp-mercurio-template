@@ -1,7 +1,7 @@
 <?php
 
 function init_template() {
-    add_theme_support('post-thumbn ails');
+    add_theme_support('post-thumbnails');
     add_theme_support( 'title-tag' );
 
     register_nav_menus( 
@@ -13,9 +13,10 @@ function init_template() {
 
 add_action('after_setup_theme', 'init_template');
 
-add_theme_support( 'post-thumbnails' );
 add_theme_support( 'custom-header' );
 add_theme_support( 'custom-logo' );
+add_theme_support('editor-styles');
+// add_editor_style( 'editor-style.css' );
 
 function noSticky( $query ) {
     if ( ! is_admin() && $query->is_main_query() ) {
@@ -26,7 +27,7 @@ function noSticky( $query ) {
 add_filter( 'pre_get_posts', 'noSticky' );
 
 function assets() {
-    $ver = 1.34;
+    $ver = '1.3.13';
     wp_register_style( 'rubik', 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', '', $ver , 'all' );
     wp_register_style( 'Frank Ruhl Libre', 'https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap', '', $ver, 'all' );
 
@@ -52,9 +53,80 @@ function assets() {
     wp_enqueue_script( 'bootstrap_js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js', '', '5.0.0', true );
 }
 
-// Para que se cargue cuando al inicio de la página
 add_action( 'wp_enqueue_scripts', 'assets' );
 
+function site_block_editor_js() {
+    $ver = '1.3.13';
+    wp_register_style( 'rubik', 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', '', $ver , 'all' );
+    wp_register_style( 'Frank Ruhl Libre', 'https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap', '', $ver, 'all' );
+    
+    wp_enqueue_style( 'style', get_stylesheet_uri(  ) , array( 'rubik', 'Frank Ruhl Libre'), $ver, 'all' );
+    wp_enqueue_script( 'header', get_template_directory_uri( ).'/assets/js/addHeader.js', '', $ver, true );
+}
+add_action( 'enqueue_block_editor_assets', 'site_block_editor_js' );
+
+// Logo de Login
+function login_logo() { 
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+    $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+    ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo $image[0]; ?>);
+            height: 60px;
+            width: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            /* padding-bottom: 10px; */
+        }
+
+        #login form, .login form {
+            background: none;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        #login {
+            margin: 50px auto !important;
+            border-radius: 4px;
+            box-shadow: 0 3px 9px rgb(0 0 0 / 14%);
+            padding: 20px !important;
+            background: #fff;
+        }
+
+        .login #backtoblog, .login #nav {
+            text-align: center;
+        }
+
+        .login {
+            display: flex;
+            justify-content: center;
+            height: auto;
+        }
+
+        @media screen and (max-width: 550px) {
+            #login {
+                margin: 25px 20px !important;
+            }
+        }
+    </style>
+<?php }
+
+
+add_action( 'login_enqueue_scripts', 'login_logo' );
+
+function login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'login_logo_url' );
+ 
+function login_logo_url_title() {
+    return 'Mercurio Revista Digital';
+}
+add_filter( 'login_headertitle', 'login_logo_url_title' );
+
+// Para que se cargue cuando al inicio de la página
 class ClassLiWalker extends Walker_Nav_Menu {
   function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
        global $wp_query;

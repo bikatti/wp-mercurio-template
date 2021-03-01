@@ -1,16 +1,7 @@
-<div class="o-content__menu" id="menuContent">
-    <?php require_once "assets/php/menu.php"; ?>
-</div>
-<!-- .o-content__menu -->
 
-<footer class="o-footer">
-    <div class="m-footer">
-        <?php require_once "assets/php/footer/index.php"; ?>
-    </div>
-    <!-- <div class="m-firm">
-        <?php //require_once "assets/php/footer/firm.php"; ?>
-    </div> -->
-</footer>
+<?php get_template_part( 'template-parts/header/burger/menu-burger' ); ?>
+
+<?php get_template_part( 'template-parts/footer/site-footer' ); ?>
 
 <?php wp_footer(  ); ?>
 

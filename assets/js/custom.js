@@ -1,10 +1,10 @@
 window.onscroll = () => stickyMenu()
 
 let header = document.getElementById("headerSticky")
-let sticky = header.offsetTop
 
 function stickyMenu() {
-  if (window.pageYOffset > sticky) {
+  // window.pageYOffset > sticky
+  if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
     header.classList.add("-headerFixed")
   } else {
     header.classList.remove("-headerFixed")
