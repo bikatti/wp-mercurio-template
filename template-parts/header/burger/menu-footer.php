@@ -22,7 +22,7 @@
     </div><!-- .m-menuOut__block.m-menuOut__blockLink -->
 
     <div class="m-menuOut__block m-menuOut__blockLegal">
-        <span class="a-legalCompany -colorLightin">Monmedios</span><!-- .a-legalCompany.-colorLightin -->
+        <a href="https://monmedios.com" class="a-legalCompany -colorLightin">Monmedios</a><!-- .a-legalCompany.-colorLightin -->
         <?php // dynamic_sidebar( 'cprt' );?>
     </div><!-- .m-menuOut__block.m-menuOut__blockLegal -->
 
