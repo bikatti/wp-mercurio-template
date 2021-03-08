@@ -1,0 +1,76 @@
+.m-crop {
+    @extend .-overHidden;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba($color-black, .05);
+
+    &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        padding-bottom: 65%;
+    }
+    
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        // object-position: 0 top;
+        object-position: center;
+        top: 50%;
+        left: 50%;
+        // width: calc(100% + 2px);
+        max-width: calc(100% + 2px);
+        // height: calc(100% + 2px);
+        transform: translate(-50%,-50%);
+    }
+
+    .-headline {
+        object-position: 50% top;
+    }
+}
+
+.m-crop__ratioVideo::after {
+    padding-bottom: 56.19632%;
+}
+.m-crop__ratio1x1::after {
+    padding-bottom: 100%;
+}
+.m-crop__ratio2x3::after {
+    padding-bottom: 150%;
+}
+.m-crop__ratio3x2::after {
+    padding-bottom: 66.66667%;
+}
+
+.m-crop__ratio5x6::after {
+    padding-bottom: 120%;
+}
+
+.m-crop__sizeFtHome::after {
+    padding-bottom: 100%;
+}
+.m-crop__sizeFtMain::after {
+    padding-bottom: 69.33333%;
+    @include mediaQueriesMd {
+        padding-bottom: 66%;
+    }
+}
+.m-crop__sizeFt::after {
+    padding-bottom: 50%;
+    @include mediaQueriesMinXl {
+        padding-bottom: 66.66667%;
+    }
+}
+.m-crop__sizeDomino::after {
+    @include mediaQueriesMd {
+        padding-bottom: 100%;
+    }
+}
+
+.m-crop__ratio11x14::after {
+    padding-bottom: 127.27273%;
+}

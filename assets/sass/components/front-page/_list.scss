@@ -1,0 +1,29 @@
+.m-theList {
+    width: 100%;
+    border: $space0 solid $color-lightgrey;
+    padding: 0 $space25 0 110px;
+    position: relative;
+    min-height: 114px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+        content: "";
+        background-repeat: no-repeat;
+        display: block;
+        position: absolute;
+    }
+    &::before {
+        height: 133px;
+        width: 71px;
+        background-image: url(../img/icons/icon-up.svg);
+        left: 20px;
+        top: -15px;
+    }
+}
+
+.m-theList__headline {
+    font-size: $font-15;
+    line-height: 1;
+}

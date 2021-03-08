@@ -1,0 +1,109 @@
+.a-btn {
+    font-size: $font-11;
+    color: $color-lightin;
+    line-height: $font-11;
+    border-radius: 0;
+    transition: background-color .24s cubic-bezier(.215,.61,.355,1),color .24s cubic-bezier(.215,.61,.355,1);
+    cursor: pointer;
+}
+
+.a-btn {
+    display: inline-flex;
+}
+
+.a-btn__block {
+    padding: $spaceXxs;
+}
+
+.a-btn__bg {
+    font-size: $font-16;
+    padding: $spaceSm;
+}
+
+.a-pagination__btn {
+    padding: $spaceSm;
+    font-size: $font-14;
+    line-height: $font-14;
+    letter-spacing: 0;
+    border-radius: $space0;
+    background-color: $color-primary;
+    box-shadow: $shadow2;
+    transition: opacity .24s cubic-bezier(.455,.03,.515,.955);
+
+    &.-right {
+        margin-left: auto;
+    }
+
+    &:hover {
+        background: lighten($color-primary, 5%);
+        color: $color-lightin;
+    }
+}
+
+.-btnRed {
+    border: 1px solid currentColor;
+    background: $color-primary;
+    color: $color-lightin;
+}
+
+.-btnMonlogo {
+    font-size: $font-16;
+}
+
+.-btnPrimary {
+    color: #000;
+}
+
+// Button of subscribe on menu top
+.m-subs__cta {
+    align-self: center;
+    padding: 0 $spaceRg;
+    color: $color-primary;
+    font-size: $font-16;
+    @include mediaQueriesLg {
+        @include Rubik(6);
+        font-size: $font-13;
+        padding: $spaceXs 0;
+    }
+}
+.-btnSubs {
+    @include mediaQueriesMinLg {
+        @include Rubik(7);
+        background: $color-primary;
+        color: $color-lightin;
+        padding: $space0 $spaceRg;
+        text-transform: uppercase;
+        border-radius: 2px;
+        // width: 125px;
+        font-size: $font-13;
+        letter-spacing: .5px;
+        line-height: $spaceRg;
+        text-align: center;
+        &:hover {
+            background: darken( $color-primary, 10%);
+            color: $color-lightin;
+        }
+    }
+    @include mediaQueriesLg {
+        color: $color-black;
+        &:hover {
+            color: $color-primary;
+        }
+    }
+    @include mediaQueriesLg {
+        display: none !important;
+    }
+}
+
+.m-footerTip__link {
+    align-items: center;
+    border: 1px solid $color-lightin;
+    display: flex;
+    height: 42px;
+    justify-content: center;
+    font-size: $font-11;
+    letter-spacing: 1px;
+    line-height: $font-13;
+    text-transform: uppercase;
+    width: 190px;
+}

@@ -1,0 +1,396 @@
+.o-content__menu {
+    position: fixed;
+    z-index: calc(#{$super} + #{$guest});
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20%);
+    transition: transform .25s cubic-bezier(0,0,.2,1) .25s,opacity .16s cubic-bezier(0,0,.2,1),visibility .16s cubic-bezier(0,0,.2,1);
+    -webkit-overflow-scrolling: touch;
+
+    &.-openMenu {
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0ms,0ms,0ms;
+    }
+}
+
+.o-menuOut {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    @include mediaQueriesMinLg {
+        background-color: $color-black;
+    }
+}
+
+.m-menuOut__close {
+    @include mediaQueriesMinLg {
+        display: block;
+        position: absolute;
+        z-index: $super;
+        top: $spaceSm;
+        left: calc(50% + 430px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .16s cubic-bezier(.4,0,.2,1),visibility .16s cubic-bezier(.4,0,.2,1);
+
+        .-openMenu & {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: .25s,.25s;
+        }
+    }
+    @include mediaQueriesLg  {
+        position: relative;
+        display: block;
+        margin-top: $spaceXxs;
+        margin-left: $spaceXs;
+        min-height: 36px;
+    }
+}
+
+.m-closeMenu {
+    position: relative;
+    display: block;
+    width: 36px;
+    height: 36px;
+    border-radius: 99%;
+    background-color: $color-primary;
+    box-shadow: 0 2px $space0 0 rgba(0,0,0,.2);
+
+    &::before, &::after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 1px);
+        left: 8px;
+        width: 20px;
+        height: 1px;
+        transform: rotate(45deg);
+        transition: transform .6s cubic-bezier(0,0,.2,1);
+        background-color: $color-lightin;
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+
+    @include mediaQueriesMinLg {
+        width: 50px;
+        height: 50px;
+
+        &::before, &::after {
+            left: 10px;
+            width: 29px;
+            height: 2px;
+        }
+    }
+}
+
+.m-menuOut__wrap {
+    display: flex;
+    flex-flow: column nowrap;
+    position: absolute;
+    top: 51px;
+    right: 0;
+    left: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    color: $color-lightin;
+    background-color: $color-black;
+
+    @include mediaQueriesMinLg {
+        top: 0;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 $spaceRg;
+        background-color: transparent;
+    }
+}
+
+.m-menuOut__row {
+    @include mediaQueriesMinLg {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: $borderTwo;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .m-menuOut__nav + & {
+            border-top: $borderTwo;
+        }
+    }
+}
+
+.m-menuOut__branding {
+    display: none;
+    @include mediaQueriesMinLg {
+        display: block;
+        padding: $spaceSm $spaceMd $space0 0;
+    }
+}
+.m-menuOut__logo {
+    width: 300px;
+    height: 55px;
+}
+
+.m-menuOut__search {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 51px;
+
+    @include mediaQueriesMinLg {
+        height: 41px;
+        margin-right: calc(#{$spaceXl} + #{$spaceRg});
+    }
+}
+
+.m-menuOut__nav {
+    position: relative;
+    flex: 1 0 auto;
+    padding-bottom: 0;
+
+    @include mediaQueriesMinLg {
+        flex: 0 0 auto;
+        margin: 0 -.15px;
+        padding-bottom: $spaceMd;
+        overflow: hidden;
+    }
+}
+
+.m-menuOutNav {
+    list-style: none;
+    border-top: 1px solid $color-darkengrey;
+
+    @include mediaQueriesMinLg {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        border-top: none;
+    }
+}
+
+.m-menuOutNav__item {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+
+    &Sub {
+        display: block;
+    }
+
+    @include mediaQueriesMinLg {
+        flex: 0 0 auto;
+        width: 25%;
+        flex-flow: column nowrap;
+        padding: $spaceRg $spaceSm;
+
+        &Sub {
+            width: 100%;
+            padding: 0;
+        }
+    }
+
+    @include mediaQueriesLg {
+        flex-flow: row wrap;
+        border-bottom: $borderTwo;
+        background-color: $color-black;
+        transition: background-color .24s cubic-bezier(.215,.61,.355,1);
+        &Sub {
+            border-bottom-color: $color-grey;
+            background-color: $color-lightin;
+        }
+    }
+}
+
+.m-menuOutNav__link {
+    flex: 1 1 auto;
+    width: calc(100% - 55px);
+    padding: .8125rem $spaceRg;
+    display: flex;
+    align-items: center;
+    font-size: $font-19;
+
+    &:hover {
+        color: $color-secondary;
+    }
+
+    &Sub {
+        width: 100%;
+        padding-left: $spaceMd;
+        font-size: $font-15;
+        color: $color-black;
+    }
+
+    p {
+        &:hover {
+            color: $color-secondary;
+        }
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    @include mediaQueriesMinLg  {
+        position: relative;
+        width: 100%;
+        margin-bottom: $space0;
+        padding: 0 0 $spaceXs;
+        font-size: $font-29;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: $color-secondary;
+        }
+        
+        &Sub {
+            // font-family: $font3;
+            margin: 0;
+            padding: 0;
+            font-size: $font-15;
+            font-weight: 300;
+            p {
+                color: $color-lightgrey;
+            }
+            &::before {
+                content: none;
+            }
+        }
+    }
+}
+.m-menuOutNav__expander {
+    position: relative;
+    flex: 0 0 auto;
+    width: 55px;
+    height: 50px;
+
+    @include mediaQueriesMinLg {
+        display: none;
+    }
+}
+.m-menuOutNav__submenu {
+    list-style: none;
+    flex: 0 0 auto;
+    width: 100%;
+    box-shadow: 0 -1px 1px 0 rgba(0,0,0,.5);
+}
+
+[data-collapsible]:not(.-expanded) [data-collapsible-panel][data-collapsible-breakpoint=mobile-only] {
+    @include mediaQueriesMinLg {
+        display: block;
+    }
+}
+
+.m-menuOut__block {
+    @extend .-flexCenterCenter;
+    @include Rubik(4);
+    flex-flow: column nowrap;
+    padding: $spaceSm;
+
+    &.m-menuOut__blockLink {
+        padding-top: $space0;
+        padding-bottom: $spaceXs;
+    }
+
+    &.m-menuOut__blockLegal {
+        text-align: center;
+        border-top: $borderTwo;
+    }
+
+    @include mediaQueriesMinLg {
+        flex-flow: row nowrap;
+        padding: $spaceSm 0;
+
+        &.m-menuOut__blockLegal {
+            border-top: none;
+        }
+    }
+}
+
+.m-menuOut__menu, .m-menuOut__copyright{
+    font-size: $spaceXs;
+    white-space: nowrap;
+}
+
+.m-menuOut__menu {
+    @extend .-flexCenterCenter;
+    list-style: none;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    @include mediaQueriesMinLg {
+        font-size: $font-12;
+    }
+}
+
+.m-menuOut__menuItem {
+    padding: 0 $space0;
+
+    a:hover {
+        color: $color-secondary;
+    }
+}
+
+.a-legalCompany {
+    font-size: $font-30;
+}
+
+.m-menuOut__copyright {
+    padding-left: $spaceXs;
+}
+
+.m-menuOut__heading {
+    padding: $space0 0;
+    font-size: $spaceRg;
+    text-align: center;
+
+    @include mediaQueriesMinLg {
+        padding-right: $spaceRg;
+    }
+}
+
+.m-socialMedia {
+    display: flex;
+    list-style: none;
+
+    &__item {
+        flex: 1 1 auto;
+        & + .m-socialMedia__item {
+            margin-left: $spaceXxs;
+        }
+    }
+
+    &__link {
+        background-color: $color-darkengreyplus;
+        transition: opacity .24s cubic-bezier(.215,.61,.355,1);
+        .m-socialMedia.-round & {
+            width: 38px;
+            height: 38px;
+            border: $borderTwo;
+            border-radius: 99%;
+            background-color: transparent;
+
+        }
+        span {
+            padding: $space0;
+            line-height: 0;
+        }
+    }
+}

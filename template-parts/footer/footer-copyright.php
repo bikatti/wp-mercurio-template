@@ -18,7 +18,7 @@ $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
         </a>
     </div> .m-footerTip__heading.m-firm__logo -->
     <!-- <p class="m-footerTip__heading -colorLightin -bold">¿Sugerencías?</p> -->
-    <div class="m-footerTip__body"><?php echo '© '. date('Y') . ' <a href="https://monlogo.co"> Monlogo</a>, una división de servicios de <a href="https://prointelecto.com">Prointelecto C.A.</a>'; ?><br> Soportado por una plataforma digital <a href="https://monmedios.com">Monmedios</a></div><!-- .m-footerTip__body -->
+    <div class="m-footerTip__body"><?php echo '© '. date('Y') . ' <a href="https://monlogo.co"> Monlogo</a>, una división de servicios de <a href="https://prointelecto.com">Prointelecto C.A.</a>'; ?><br> Creado y soportado por <a href="https://monmedios.com">momendios.com</a></div><!-- .m-footerTip__body -->
     <!-- <a href="#" class="m-footerTip__link -colorLightin -bold">Enviar</a> -->
     <img src="<?php echo $image[0]; ?>" alt="logotipo de <?php echo esc_attr( get_bloginfo('name') ); ?>" class="m-footer__logo"><!-- .m-footer__logo -->
 </div><!-- .m-footer__tip -->

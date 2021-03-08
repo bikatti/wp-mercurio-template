@@ -1,0 +1,378 @@
+.o-article {
+    position: relative;
+    transition: transform .5s cubic-bezier(.86,0,.07,1);
+}
+
+.o-blog__primary {
+    grid-column: 1/2;
+}
+
+.m-article__header {
+    @extend .-flexCenterCenter;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: -$space0;
+}
+
+.m-article__headerBlock {
+    padding: $space0 0;
+    flex: 1 1 auto;
+}
+
+.m-article__breadcrumbs {
+    padding-right: $spaceXs;
+    &, & + .m-article__time {
+        font-size: $font-12;
+        line-height: $font-13;
+    }
+}
+
+.m-breadcrumbs {
+    display: flex;
+    align-items: flex-start;
+}
+
+.m-article__time {
+    flex-grow: 0;
+    color: $color-darkengrey;
+}
+
+.m-article__headerRow {
+    padding: $space0 0;
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.m-article__title {
+    padding-top: $spaceXs;
+    font-size: $font-29;
+    line-height: $font-30;
+    @include mediaQueriesMinMd {
+        padding-top: $spaceXs;
+        font-size: $font-35;
+        line-height: $font-40;
+    }
+    @include mediaQueriesMinLg {
+        font-size: $font-40;
+        line-height: $font-45;
+    }
+}
+
+.m-article__excerpt {
+    font-size: $font-15;
+    line-height: $font-18;
+    p {
+        margin-bottom: 0;
+    }
+    @include mediaQueriesMinMd {
+        font-size: $font-18;
+        line-height: $font-25;
+    }
+}
+
+.m-article__byLine {
+    padding: $space0;
+    padding-left: 0;
+    font-size: $font-13;
+
+    .m-byLine__by {
+        display: inline-block;
+        min-width: $spaceRg;
+        font-size: $font-14;
+    }
+    .m-byLine__author {
+        position: relative;
+        display: inline-block;
+        margin-left: $space0 / 1.5;
+    }
+}
+
+.m-picture {
+    display: block;
+    padding: $spaceMd 0;
+    padding-top: $spaceXs;
+}
+.m-picture__video {
+    .m-picture__frame {
+        position: relative;
+        cursor: pointer;
+    }
+    iframe {
+        width: 100%;
+        position: absolute;
+        height: 100% !important;
+    }
+}
+
+.m-picture__noCaption {
+    margin-bottom: $spaceRg;
+}
+
+.m-picture__caption {
+    padding: $spaceXs 0;
+    border-bottom: $borderBottom;
+    .m-picture__source {
+        font-size: $font-13;
+        line-height: $spaceSm;
+        color: $color-darkengrey;
+    }
+}
+
+// the_content() de la página
+.m-article__content {
+    .-copy {
+        font-size: $font-18;
+        line-height: $font-29;
+    }
+    @include mediaQueriesMinXl {
+        padding: 0 calc(9% + #{$spaceXs});
+    }
+}
+
+.m-content {
+    width: 100%;
+    font-size: $font-16;
+    line-height: $font-25;
+    
+    p {
+        padding: $spaceXs 0;
+    }
+
+    .wp-block-image {
+        @extend .m-crop;
+        @extend .m-crop__ratio3x2;
+    }
+    .wp-block-image img {
+        @extend .m-crop__img;
+    }
+    
+    .wp-block-embed iframe {
+        margin: $spaceRg 0;
+        width: 100%;
+        height: 400px;
+    }
+
+    td {
+        @include Rubik(4);
+        border: $borderBottom;
+    }
+    .instagram-media, .twitter-tweet {
+        margin: 0 auto !important;
+    }
+
+
+    & > h1, & .-modifier > h1 {
+        @include Rubik(7);
+        font-size: $font-35;
+        line-height: 1.1;
+    }
+
+    & > h2, & .-modifier > h2 {
+        @include Rubik(7);
+        font-size: $font-29;
+        line-height: 1.2;
+    }
+
+    & h3, & .-modifier > h3 {
+        @include Rubik(7);
+        font-size: $font-25;
+        line-height: 1.2;
+    }
+
+    & > h4, & .-modifier > h4 {
+        @include Rubik(7);
+        font-size: $font-19;
+        line-height: 1.2;
+    }
+
+    & > h5, & .-modifier > h5 {
+        @include Rubik(7);
+        font-size: $font-18;
+        line-height: 1.2;
+    }
+
+    & > h6, & .-modifier > h6 {
+        @include Rubik(7);
+        font-size: $font-17;
+        line-height: 1.2;
+    }
+
+    & blockquote, & .-modifier > blockquote {
+        @include Rubik(6);
+        font-size: $font-19;
+        line-height: 1.3;
+        text-align: left;
+        padding: $space0 0 !important;
+        border-left: 5px solid $color-primary;
+
+        cite {
+            @include Rubik(5);
+            font-size: $font-15;
+        }
+        
+        p, cite {
+            padding: $spaceSm $spaceXs $spaceXs;
+        }
+        a {
+            margin: $spaceXs;
+            display: inline-block;
+        }
+    }
+
+    .o-section__page & {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    &__withoutSidebar {
+        & > h1 {
+            font-size: $font-30;
+        }
+
+        & > h2 {
+            font-size: $font-19;
+            line-height: 1.2;
+        }
+    }
+
+    & > ul, & > ol, & .-modifier > ul, & .-modifier > ol {
+        list-style-position: inside;
+    }
+
+    & li::marker {
+        margin-right: $spaceXxs;
+    }
+
+    &.-up {
+        order: -1;
+    }
+
+    @include mediaQueriesMinMd {
+        
+        &__withoutSidebar {
+            & > h1 {
+                font-size: $font-45;
+                line-height: 50px;
+            }
+            
+            & > h2 {
+                font-size: $font-25;
+                line-height: $font-30;
+            }
+        }
+
+        & > h1, & .-modifier > h1 {
+            font-size: $font-40;
+            line-height: 1.1;
+        }
+        
+        & h2, & .-modifier > h2 {
+            font-size: $font-30;
+            line-height: 1.2;
+        }
+
+        & h3, & .-modifier > h3 {
+            font-size: $font-29;
+            line-height: 1.2;
+        }
+
+        & > h4, & .-modifier > h4 {
+            font-size: $font-25;
+            line-height: 1.2;
+        }
+
+        & > h5, & .-modifier > h5 {
+            font-size: $font-19;
+            line-height: 1.2;
+        }
+
+        & > h6, & .-modifier > h6 {
+            font-size: $font-18;
+            line-height: 1.2;
+        }
+
+        & blockquote, & .-modifier > blockquote {
+            font-size: $font-19;
+            line-height: 1.2;
+
+            cite {
+                font-size: $font-16;
+            }
+            p, cite {
+                padding: $spaceSm $spaceSm;
+            }
+        }
+    }
+
+    @include mediaQueriesMd {
+        .wp-block-embed iframe {
+            height: 240px;
+        }
+    }
+}
+
+.o-section__page {
+    & h2 {
+        font-size: $font-30;
+    }
+
+    & h3 {
+        padding-bottom: 0;
+    }
+}
+
+.m-content .-modifier > p, .m-content .-modifier > h1,
+.m-content .-modifier > h2, .m-content .-modifier > h3,
+.m-content .-modifier > h4, .m-content .-modifier > h5,
+.m-content .-modifier > h6, .m-content .-modifier > ol,
+.m-content .-modifier > ul, .m-content .-modifier > blockquote,
+.m-content > ol, .m-content > ul, .m-content > blockquote,
+.m-content > h1, .m-content > h2, .m-content > h3,
+.m-content > h4, .m-content > h5, .m-content > h6,
+.m-content > p {
+    padding: $spaceSm 0;
+    &:first-child {
+        padding-top: 0;
+    }
+}
+
+.m-content .-modifier > p, .m-content .-modifier > h1,
+.m-content .-modifier > h2, .m-content .-modifier > h3,
+.m-content .-modifier > h4, .m-content .-modifier > h5,
+.m-content .-modifier > h6, .m-content .-modifier > ol,
+.m-content .-modifier > ul, .m-content .-modifier > blockquote,
+.m-content > ol, .m-content > ul, .m-content > blockquote,
+.m-content > h1, .m-content > h2, .m-content > h3,
+.m-content > h4, .m-content > h5, .m-content > h6,
+.m-content > p {
+    & a {
+        @include Rubik(6);
+        position: relative;
+        color: $color-secondary;
+    }
+}
+
+.m-content > ol, .m-content > ul, .m-content .-modifier > ol,
+.m-content .-modifier > ul {
+    padding-top: 0;
+}
+
+.m-content > ol li, .m-content > ul li,
+.m-content .-modifier > ol li, .m-content .-modifier > ul li {
+    padding: $spaceXs 0;
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+    }
+}
+
+// Tags
+.m-tags {
+    padding: $spaceXs 0;
+    font-size: $font-14;
+    line-height: $spaceRg;
+}

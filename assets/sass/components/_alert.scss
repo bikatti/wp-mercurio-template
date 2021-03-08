@@ -1,0 +1,19 @@
+.m-alert {
+    position: relative;
+    padding: $spaceSm;
+    margin-bottom: $spaceSm;
+    border: 1px solid transparent;
+    border-radius: $space0;
+
+    &__success {
+        color: darken($color-alert, 10%);
+        background-color: rgba($color-alert, $alpha: .35);
+        border-color: rgba($color-alert, $alpha: .5);
+    }
+
+    &__warning {
+        color: darken($color-primary, 10%);
+        background-color: rgba($color-primary, $alpha: .35);
+        border-color: rgba($color-primary, $alpha: .5);
+    }
+}

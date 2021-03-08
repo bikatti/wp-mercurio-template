@@ -1,0 +1,36 @@
+.a-icon__burguer {
+    color: $color-black;
+    display: block;
+    fill: currentColor;
+    width: 22px;
+    height: 22px;
+    position: relative;
+    left: 4px;
+    top: 2px;
+
+    @include mediaQueriesMinLg {
+        width: 20px;
+        height: 17px;
+    }
+}
+
+.a-icon__expander {
+    display: block;
+    @include mediaQueriesLg {
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            z-index: $guest;
+            width: 16px;
+            height: 1px;
+            top: 50%;
+            left: 50%;
+            margin-left: -$spaceXxs;
+            background-color: $color-lightin;
+            transition: transform .6s cubic-bezier(0,0,.2,1);
+        }
+        &::after {
+            transform: rotate(90deg);
+        }
+    }
+}

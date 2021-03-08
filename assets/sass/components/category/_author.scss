@@ -1,0 +1,97 @@
+.m-authorBio {
+    display: grid;
+    grid-template-columns: 160px 15px 1fr;
+    grid-template-rows: auto 15px auto;
+
+    @include mediaQueriesMinLg {
+        grid-template-columns: 195px 20px 1fr;
+    }
+
+    @include mediaQueriesMinXl {
+        grid-template-columns: 145px 20px 1fr;
+        grid-template-rows: 1fr;
+    }
+    
+    @include mediaQueriesXs {
+        grid-template-columns: 95px 1fr;
+        grid-template-rows: auto auto auto;
+    }
+}
+
+.m-authorBio__profile {
+    align-self: center;
+    grid-row: 1;
+    grid-column: 1;
+
+    @include mediaQueriesMinLg {
+        margin-bottom: $spaceBg;
+        align-self: inherit;
+    }
+
+    @include mediaQueriesXs {
+        img {
+            border-radius: 50%;
+        }
+    }
+}
+
+.m-authorBio__thumb {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+.m-authorBio__meta {
+    grid-row: 1;
+    grid-column: 3;
+    
+    @include mediaQueriesMinLg {
+        padding-left: $spaceRg;
+        padding-right: $spaceRg;
+    }
+    
+    @include mediaQueriesMinXl {
+        padding: 0;
+    }
+    
+    @include mediaQueriesXs {
+        grid-row: 2;
+        grid-column: 1/3;
+        margin: $spaceRg 0;
+    }
+}
+
+.m-authorBio__heading {
+    font-size: 28px;
+    letter-spacing: -.62px;
+    line-height: 1.2;
+    margin-bottom: $spaceXs;
+
+    &::first-letter {
+        text-transform: uppercase;
+    }
+
+    @include mediaQueriesMinMd {
+        font-size: $font-45;
+        letter-spacing: -1px;
+        line-height: 1;
+    }
+}
+
+.m-authorBio__desWrap {
+    grid-column: 1/4;
+    grid-row: 3;
+    margin-bottom: $spaceMd;
+
+    @include mediaQueriesMinLg {
+        grid-column: inherit;
+        grid-row: inherit;
+    }
+}
+
+.m-authorBio__des {
+    font-size: $font-14;
+    line-height: 1.4;
+    letter-spacing: .47px;
+    margin-bottom: 0;
+}

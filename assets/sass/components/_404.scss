@@ -1,0 +1,72 @@
+.o-404 {
+    @extend .-center;
+    margin-bottom: -$space25;
+    padding: 75px $spaceMd 150px;
+    background: $color-primary;
+    
+}
+
+.m-404 {
+    &__title {
+        font-size: calc(#{$font-45} * 3);
+        letter-spacing: $font-16;
+        line-height: 1;
+    }
+
+    &__subtitle {
+        margin-top: $spaceRg;
+        font-size: $font-25;
+        letter-spacing: 7.16px;
+        line-height: 1;
+    }
+
+    &__description {
+        margin-top: #{$spaceBg};
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 600px;
+        font-size: $font-45;
+        font-style: italic;
+        text-decoration: underline;
+        line-height: 55px;
+    }
+
+    &__btn {
+        // border: 1px solid;
+        display: block;
+        margin-top: $spaceBg;
+        margin-left: auto;
+        margin-right: auto;
+        width: 380px;
+        max-width: 70%;
+        padding: $spaceRg;
+        font-size: $font-17;
+        background: $color-black;
+        transition: background .24s cubic-bezier(.455,.03,.515,.955);
+
+        &:hover {
+            background: $color-dark;
+            color: $color-lightin;
+        }
+    }
+
+    @include mediaQueriesXs {
+        &__title {
+            font-size: calc(#{$font-45} * 2);
+            letter-spacing: 1.5PX;
+        }
+    
+        &__subtitle {
+            font-size: $font-16;
+        }
+    
+        &__description {
+            font-size: $font-25;
+            line-height: 35px;
+        }
+    
+        &__btn {
+            font-size: $font-16;
+        }
+    }
+}

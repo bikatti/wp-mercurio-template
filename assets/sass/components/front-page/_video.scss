@@ -1,0 +1,24 @@
+.m-videoCarousel {
+    width: 100%;
+    margin-top: -$spaceRg;
+
+    @include mediaQueriesMinLg {
+        margin-top: -$spaceXl;
+    }
+}
+
+.m-videoCarousel__slider {
+    padding-bottom: $spaceXs;
+    border-top: $borderBottom;
+}
+
+.m-videoCarousel__item {
+    flex-shrink: 0;
+    width: 200px;
+    padding: $spaceRg $spaceXs;
+
+    @include mediaQueriesMinMd {
+        width: 295px;
+        padding: $spaceRg;
+    }
+}

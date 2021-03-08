@@ -1,0 +1,11 @@
+.-sizeGrow {
+    flex-grow: 1;
+}
+
+.m-sticky__item {
+    top: $spaceRg;
+    transition: top .24s cubic-bezier(.215,.61,.355,1);
+    will-change: top;
+    top: 65px;
+}
+

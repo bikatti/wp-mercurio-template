@@ -1,0 +1,72 @@
+.o-sectionTop {
+    @extend .-container;
+    text-align: center;
+
+    & > * {
+        position: relative;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        background-color: $color-primary;
+    }
+
+    @include mediaQueriesMinLg {
+        display: grid;
+        grid-auto-columns: max-content;
+        grid-gap: $spaceMd;
+        grid-auto-flow: column;
+        align-items: center;
+    }
+
+    @include mediaQueriesMinMd {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100vw;
+            height: 100%;
+            left: calc(50% - 50vw);
+            background-color: darken($color-primary, 7%);
+            box-shadow: 0 2px 8px 0 darken($color-primary, 18%);
+            z-index: $guest;
+        }
+
+        &::after {
+            bottom: -155px;
+        }
+    }
+
+    @include mediaQueriesMd {
+        margin-bottom: 40px;
+    }
+}
+
+.m-sectionTop__heading {
+    position: relative;
+    z-index: $parent;
+    padding-bottom: $space0;
+    font-size: $font-38;
+    line-height: $font-45;
+    padding-top: $spaceXs;
+
+    @include mediaQueriesMinMd {
+        padding-bottom: 0;
+        padding-top: 0;
+        font-size: $font-45;
+        line-height: 78px;
+    }
+}
+
+.m-sectionTop__menu {
+    position: relative;
+    z-index: $child;
+    font-size: $font-15;
+    height: 100%;
+}

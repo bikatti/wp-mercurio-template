@@ -1,0 +1,195 @@
+.m-features {
+    @extend .-flexCenterCenter;
+    width: 100%;
+    background-image: linear-gradient($color-lightgrey,$color-lightgrey);
+
+    @include mediaQueriesMinMd {
+        background-position-x: 210px;
+        background-repeat: no-repeat;
+    }
+
+    @include mediaQueriesMd {
+        width: calc(100% + #{$spaceBg});
+        margin-left: -$spaceRg;
+        flex-wrap: wrap;
+        padding-top: $spaceMd;
+        padding-bottom: $spaceSm;
+    }
+
+    @media (max-width: $breakXl) and (min-width: $breakMd) {
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 100;
+            height: 100%;
+            width: 90px;
+            background-image: linear-gradient(90deg,rgba($color-black, 0),$color-lightin);
+            pointer-events: none;
+        }
+    }
+}
+
+// Title section
+.m-features__tag {
+    position: absolute;
+    top: 0;
+    z-index: $child;
+    padding: $space0 $spaceXs;
+    transform: translateY(calc(-#{$spaceMd} - 50%));
+    font-size: $spaceSm;
+    letter-spacing: .55px;
+    background-color: $color-primary;
+    @include mediaQueriesMinMd {
+        transform: translateY(-$spaceSm) translateX($spaceSm);
+    }
+}
+
+// Features Main
+.m-features__main {
+    position: relative;
+    z-index: $child;
+
+    @include mediaQueriesMinMd {
+        margin-right: $space0;
+    }
+}
+
+.m-featuresMain__wrap {
+    position: relative;
+    z-index: 0;
+    display: block;
+    color: $color-lightin;
+}
+
+.m-featuresMain__img {
+    position: relative;
+    z-index: 0;
+    display: block;
+    width: calc(100vw - 32px);
+    max-height: 293px;
+    margin-bottom: $spaceSm;
+
+    .m-crop__sizeFtMain {
+        max-height: 288px;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: $guest;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(180deg, rgba($color-dark, 0) 44%, $color-black);
+        }
+    }
+
+    @include mediaQueriesMinMd {
+        margin-top: $spaceSm;
+        max-width: 500px;
+    }
+}
+
+.m-featuresMain__header {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: $super;
+    width: 100%;
+    padding: $spaceXs $spaceRg;
+    transition: transform .3s ease-out;
+
+    @include mediaQueriesMinMd {
+        padding: $spaceMd;
+    }
+}
+
+.m-featuresMain__heading {
+    font-size: $font-25;
+    letter-spacing: -.5px;
+    line-height: $font-30;
+    @extend .-lineClampTitle;
+}
+
+.m-featuresMain__lead {
+    @include Rubik(4);
+    font-size: $font-16;
+    line-height: $font-19;
+    @extend .-lineClampText;
+}
+
+// Slider
+.m-features__slider {
+    position: relative;
+    padding: $spaceSm 0;
+    margin-left: $spaceSm;
+
+    @include mediaQueriesMinMd {
+        width: 100%;
+    }
+}
+.m-slider {
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    width: 100%;
+    overflow-x: scroll;
+
+    @include mediaQueriesMinMd {
+        overflow-x: hidden;
+    }
+}
+
+.m-slider__track {
+    display: flex;
+    transition: transform .24s cubic-bezier(.215,.61,.355,1);
+    will-change: transform;
+}
+
+.m-slider__item {
+    flex-shrink: 0;
+}
+
+// features item
+.m-features__item {
+    width: 248px;
+    padding-right: $spaceSm;
+
+    @include mediaQueriesMd {
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
+.m-featuresItem__wrap {
+    @extend .-overHidden;
+    display: block;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 10%;
+        z-index: $child;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(180deg, rgba($color-dark, 0) 44%, $color-black);
+        transition: transform .3s ease-out;
+    }
+}
+
+.m-featuresItem__header {
+    position: absolute;
+    bottom: 0;
+    z-index: $child;
+    width: 100%;
+    padding: $spaceRg $spaceMd;
+}
+
+.m-featuresItem__heading {
+    font-size: $font-18;
+    text-align: center;
+    line-height: $spaceRg;
+    transition: transform .3s ease-out;
+    @extend .-lineClampTitleLong;
+}

@@ -1,0 +1,37 @@
+.o-blog__secondary {
+    grid-column: 3/4;
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: $space25;
+
+    @include mediaQueries0 {
+        margin-left: -10px;
+    }
+}
+
+.m-blog__favs {
+    margin-top: $space25;
+}
+
+.m-favsEditor {
+    background-color: $color-lightgrey;
+}
+
+.m-favsEditor__heading {
+    @extend .-flexCenterCenter;
+    padding: $spaceXs 0;
+    font-size: $font-18;
+    line-height: 1;
+    background-color: $color-primary;
+}
+
+.m-favsEditor__list {
+    list-style: none;
+}
+
+.m-favsEditor__item {
+    & + & {
+        border-top: $borderBottom;
+    }
+}

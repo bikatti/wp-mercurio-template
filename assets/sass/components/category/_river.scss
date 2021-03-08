@@ -1,0 +1,17 @@
+.m-river {
+    display: flex;
+    flex-flow: column nowrap;
+    list-style: none;
+}
+
+.m-river__item {
+    & + & {
+        padding-top: $spaceSm;
+    }
+
+    @include mediaQueriesMinMd {
+        & + & {
+            padding-top: $spaceRg;
+        }
+    }
+}

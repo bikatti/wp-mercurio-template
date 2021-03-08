@@ -1,0 +1,131 @@
+.o-section {
+    @extend .-container;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &.-standard {
+        margin-top: $spaceXl;
+        margin-bottom: $spaceXl;
+    }
+
+    &.-withBottomMargin {
+        margin-bottom: $spaceXl;
+    }
+
+    &.-sec::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 0;
+        margin-top: $spaceXl;
+    }
+    
+    @include mediaQueriesMinMd  {
+        &.-standard {
+            margin-bottom: 100px;
+        }
+        
+        &.-sec::after {
+            margin-top: $spaceXl;
+            padding-bottom: $spaceSm;
+        }
+
+        &.-withBottomMargin {
+            margin-bottom: calc(#{$spaceXl} + #{$spaceSm});
+        }
+    }
+
+    @include mediaQueriesMd {
+        &.-dark {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.o-section__header {
+    position: relative;
+    width: 100%;
+}
+
+.m-section__header, .m-section__heading, .m-section__cta {
+    display: flex;
+    align-items: center;
+}
+
+.m-section__header {
+    position: relative;
+    justify-content: flex-start;
+    padding: $space0 0;
+    border-top: $space0 solid $color-primary;
+
+    .o-section.-dark & {
+        padding-top: $spaceSm;
+        background: $color-darkengreyplus;
+        border-top-right-radius: $space0;
+        border-top-left-radius: $space0;
+        border: none;
+    }
+}
+
+.m-section__cta {
+    padding-left: $spaceXs;
+    font-size: $font-12;
+    line-height: $font-12;
+    color: $color-primary;
+    @include mediaQueriesMinMd {
+        padding-left: $spaceRg;
+    }
+}
+
+.m-section__heading {
+    font-size: $font-29;
+    line-height: 1.1;
+
+    .o-section.-dark &  {
+        padding-left: $spaceSm;
+    }
+    @include mediaQueriesMinMd {
+        font-size: $font-45;
+    }
+}
+
+.o-section__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: $spaceXs;
+    transition: transform .5s cubic-bezier(.86,0,.07,1),opacity .5s cubic-bezier(.86,0,.07,1);
+
+    .o-section.-dark & {
+        background: $color-darkengreyplus;
+        border-bottom-left-radius: $space0;
+        border-bottom-right-radius: $space0;
+    }
+}
+
+.m-section__grid {
+    width: 100%;
+    @include mediaQueriesMinMd {
+        width: calc(100% - 320px);
+        margin-bottom: $spaceMd;
+    }
+}
+
+.m-section__sidebar {
+    width: 100%;
+    margin: $spaceRg 0 calc(#{$spaceXl} + #{$spaceBg});
+
+    @include mediaQueriesMinMd {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin: 0 0 calc(#{$spaceXl} + #{$spaceSm});
+    }
+}
+
+.m-section__block {
+    width: 100%;
+}

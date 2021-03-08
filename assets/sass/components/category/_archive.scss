@@ -1,0 +1,38 @@
+.o-archiveTop {
+    @extend .-container;
+    z-index: 0;
+    display: flex;
+    align-items: flex-end;
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -$guest;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        background-color: $color-primary;
+    }
+
+    @include mediaQueriesMinMd {
+        margin-bottom: $spaceXs;
+    }
+}
+
+.m-archiveTop__heading {
+    padding-top: $spaceMd;
+    padding-bottom: $spaceRg;
+    font-size: $space25;
+    line-height: .9;
+    text-transform: uppercase;
+
+    &::first-letter {
+        text-transform: uppercase;
+    }
+
+    @include mediaQueriesMinMd {
+        font-size: $font-45;
+    }
+}

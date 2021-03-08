@@ -1,0 +1,84 @@
+.m-pageNav {
+    position: relative;
+    
+    @include mediaQueriesMinMd {
+        height: auto;
+        
+        &.-header {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+    }
+    
+    @include mediaQueriesMd {
+        // overflow: hidden;
+
+        &.-expanded {
+            overflow: visible;
+        }
+    }
+}
+
+.m-pageNav__list {
+    @include mediaQueriesMinMd {
+        .o-sectionTop & {
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+        }
+    }
+}
+
+.m-pageNav__item {
+    @include mediaQueriesMd {
+        position: relative;
+        // overflow: hidden;
+        display: block;
+        margin-top: $space0;
+        
+        .m-pageNav.-header & {
+            background-color: darken($color-secondary, 0%);
+            height: 44px;
+        }
+
+        &.-active {
+            order: -$guest;
+            visibility: visible;
+            transform: none;
+            opacity: 1;
+            margin-top: 0;
+        }
+
+    }
+}
+
+
+.m-pageNav__link {
+    position: relative;
+    z-index: $guest;
+    display: block;
+    padding: $spaceXs $spaceSm;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+        color: $color-lightin;
+    }
+
+    @include mediaQueriesMinMd {
+        padding: 0 $spaceSm;
+
+        .m-pageNav.-header & {
+            font-size: $font-16;
+            transition: opacity 195ms cubic-bezier(.4,0,.2,1);
+            font-style: italic;
+        }
+    }
+
+    @include mediaQueriesMd {
+        .m-pageNav.-header & {
+            @include Rubik(6);
+        }
+    }
+}

@@ -1,0 +1,134 @@
+// Navegación y distribución de la página
+.-container {
+    min-width: 320px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 $spaceRg;
+    box-sizing: border-box;
+    position: relative;
+
+    
+    // @media only screen and (min-width: 1400px)  {
+    //     max-width: 1400px;
+    // }
+}
+
+.-containerBlog {
+    @extend .-container;
+    padding-top: $spaceRg;
+    z-index: $guest;
+    @include mediaQueriesMinLg {
+        display: grid;
+        grid-template-columns: calc(100% - 380px) 80px 300px;
+        padding-top: $spaceMd;
+    }
+}
+
+// Margin
+.-mAuto {
+    margin: auto;
+}
+.-mAutoRL {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.-mAutoLft {
+    margin-left: auto;
+}
+.-mAutoRight {
+    margin-right: auto;
+}
+.-mBgBottom {
+    margin-bottom: $spaceBg;
+}
+
+// show & hide
+.-hide {
+    display: none;
+}
+.-show {
+    display: block;
+}
+
+// Position
+.-pRelative {
+    position: relative;
+}
+.-pAbsolute {
+    position: absolute;
+}
+.-sticky {
+    position: sticky;
+}
+/* .-fixed {
+    position: fixed;
+} */
+
+
+// overflow
+.-overHidden {
+    @include Overflow();
+}
+
+// Flexbox
+.-flexCenterCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Grid
+.-row {
+    display: flex;
+    flex-wrap: wrap;
+    // margin-top: $spaceXs;
+    // margin-bottom: $spaceXs;
+    .-col-1 {
+        width: 8.3333333333%;
+    }
+    .-col-2 {
+        width: 16.6666666666%;
+    }
+    .-col-3 {
+        width: 24.9999999999%;
+    }
+    .-col-4 {
+        width: 33.3333333332%;
+    }
+    .-col-5 {
+        width: 41.6666666665%;
+    }
+    .-col-6 {
+        width: 49.9999999998%;
+    }
+    .-col-7 {
+        width: 58.3333333331%;
+    }
+    .-col-8 {
+        width: 66.6666666664%;
+    }
+    .-col-9 {
+        width: 74.9999999997%;
+    }
+    .-col-10 {
+        width: 83.3333333333%;
+    }
+    .-col-11 {
+        width: 91.6666666663%;
+    }
+    .-col-12 {
+        width: 100%;
+    }
+    .-col-1, .-col-2, .-col-3, .-col-4, .-col-5, .-col-6,
+    .-col-7, .-col-8, .-col-9, .-col-10, .-col-11, .-col-12 {
+        padding: $spaceXs;
+    }
+    @include mediaQueriesSm {
+        .-col-1, .-col-2, .-col-3, .-col-4, .-col-5, .-col-6,
+        .-col-7, .-col-8, .-col-9, .-col-10, .-col-11, .-col-12 {
+            width: 100%;
+            padding: 0;
+        }
+    }
+}

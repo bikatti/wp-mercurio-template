@@ -1,0 +1,390 @@
+.o-footer {
+    margin-top: $space25;
+    color: $color-lightin;
+    background-color: $color-dark;
+    overflow-x: hidden;
+}
+
+.m-footer {
+    @extend .-container;
+    padding: $space25 $spaceRg;
+
+    @include mediaQueriesMinMd {
+        padding-left: 325px;
+    }
+    @include mediaQueriesMinXl {
+        padding-bottom: $spaceSm;
+    }
+}
+
+.m-footer__logo {
+    position: relative;
+    top: 3px;
+    width: 203px;
+    height: 37px;
+}
+
+.m-footer__nav {
+    @include mediaQueriesMinMd {
+        display: flex;
+        margin: 0 -#{$spaceRg};
+    }
+}
+
+.m-footer__menu {
+    & + & {
+        padding-top: $spaceRg;
+    }
+
+    @include mediaQueriesMinMd {
+        flex: 1 1 auto;
+        width: 25%;
+        padding: $space0 $space25;
+
+        &.-wide {
+            width: 33.33333%;
+        }
+
+        & + & {
+            padding-top: 0;
+            border-left: 1px solid $color-darkengreyplus;
+        }
+    }
+}
+
+.m-pageNav {
+    position: relative;
+
+    &.-footer {
+        // overflow: hidden;
+        border: $borderTwo;
+        transition: height 375ms cubic-bezier(.4,0,.2,1);
+    }
+
+    @include mediaQueriesMinMd {
+        height: auto;
+
+        &.-footer {
+            border: 0;
+        }
+    }
+}
+
+.m-pageNav__group {
+    display: flex;
+
+    @include mediaQueriesMinMd {
+        .m-pageNav.-twoColumns & {
+            flex-flow: row wrap;
+        }
+        
+        .m-pageNav.-oneColumns & {
+            flex-flow: column nowrap;
+        }
+    }
+    
+    @include mediaQueriesMd {
+        flex-direction: column;
+        /* transform: translateY(100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0ms linear 225ms,opacity 225ms cubic-bezier(.4,0,.2,1),visibility 225ms cubic-bezier(.4,0,.2,1); */
+
+        /* &.-visible {
+            transform: none;
+            opacity: 1;
+            visibility: visible;
+            transition: transform 225ms cubic-bezier(.4,0,.2,1),opacity 225ms cubic-bezier(.4,0,.2,1),visibility 225ms cubic-bezier(.4,0,.2,1);
+        } */
+    }
+}
+
+.m-pageNav__list {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    list-style: none;
+
+    .m-pageNav.-footer & {
+        position: relative;
+        justify-content: flex-start;
+    }
+
+    @include mediaQueriesMinMd {
+        position: relative;
+        justify-content: center;
+    }
+
+    @include mediaQueriesMd {
+        &::after {
+            content: "";
+            position: absolute;
+            width: 11px;
+            height: 11px;
+            top: 22px;
+            right: 15px;
+            transform: scaleY(.85) translate(-50%,-75%) rotate(45deg);
+            border: 2px solid $color-lightin;
+            border-left: none;
+            border-top: none;
+            transition: transform 225ms cubic-bezier(.4,0,.2,1);
+        }
+        .m-pageNav.-footer &::after {
+            right: 25px;
+        }
+    }
+}
+
+[data-ripple] {
+    position: relative;
+    // overflow: hidden;
+    
+    @include mediaQueriesMd {
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: calc(50% - #{$space0});
+            left: calc(50% - #{$space0});
+            width: $spaceXs;
+            height: $spaceXs;
+            background-color: rgba($color-black,.2);
+            border-radius: 99%;
+            opacity: 0;
+            // visibility: hidden;
+        }
+    }
+}
+
+.m-pageNav__heading {
+    @include mediaQueriesMd {
+        &.-activeFo {
+            order: -1;
+            visibility: visible;
+            transform: none;
+            opacity: 1;
+            margin-top: 0;
+        }
+    }
+}
+
+.m-pageNav__item {
+    &::marker {
+        content: none;
+    }
+    @include mediaQueriesMinMd {
+        .m-pageNav.-twoColumns & {
+            width: 50%;
+        }
+        .m-pageNav.-footer & {
+            font-size: $font-14;
+        }
+        
+        .m-pageNav.-footer &.m-pageNav__heading {
+            width: 100%;
+            padding-bottom: $spaceXs;
+            font-size: $font-19;
+        }
+    }
+
+    @include mediaQueriesMd {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        margin-top: $space0;
+        
+    }
+}
+
+.m-pageNav__link {
+    position: relative;
+    z-index: 1;
+    display: block;
+    padding: $spaceXs $spaceSm;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include mediaQueriesMinMd {
+        padding: 0 $spaceXs;
+
+        .m-pageNav.-footer &  {
+            padding: 3px 0;
+        }
+    }
+
+    @include mediaQueriesMd {
+        .m-pageNav.-footer &  {
+            min-height: 45px;
+            padding-left: $space25;
+        }
+    }
+}
+
+.m-pageNav.-footer a.m-pageNav__link:hover {
+    @include mediaQueriesMinMd {
+        color: $color-secondary;
+    }
+}
+
+.m-pageNav__cta {
+    border: 1px solid $color-lightin;
+
+    &:hover {
+        color: $color-black;
+        border-color: $color-primary;
+    }
+
+    .m-pageNav__item:nth-child(2) &, .m-pageNav__item:nth-child(3) & {
+        background-color: $color-primary;
+        border: none;
+
+        &:hover {
+            color: $color-black;
+        }
+    }
+}
+
+.m-pageNav.-footer.-cta .m-pageNav__item:not(.m-pageNav__heading) .m-pageNav__link {
+    
+    @include mediaQueriesMinMd {
+        margin-bottom: $spaceRg;
+        padding: $spaceSm $spaceRg;
+        font-size: $font-11;
+        line-height: $font-13;
+        text-align: center;
+    }
+    
+}
+
+.m-footer__newsletter {
+    display: none;
+
+    @include mediaQueriesMinMd {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $spaceSm 0;
+        margin: $spaceXs 0;
+        border-top: 1px solid $color-darkengreyplus;
+        border-bottom: 1px solid $color-darkengreyplus;
+    }
+}
+
+.m-footerNL {
+    &__heading {
+        padding-right: $spaceBg;
+        font-size: $font-29;
+    }
+
+    &__form {
+        flex: 1 1 auto;
+    }
+}
+
+.m-footer__tip {
+    display: none;
+
+    .m-footer__logo {
+        margin-left: $spaceBg;
+    }
+
+    @include mediaQueriesMinMd  {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $spaceSm 0;
+        margin: $spaceXs 0;
+    }
+}
+
+.m-footerTip {
+    &__heading {
+        font-size: $font-29;
+        flex: none;
+        line-height: $font-35;
+        padding-right: $space25;
+    }
+
+    &__body {
+        @include Rubik(4);
+        flex: 1 1 auto;
+        font-size: $font-14;
+        // font-style: italic;
+        // height: 34px;
+        line-height: 1.6;
+
+        a {
+            color: $color-lightin;
+        }
+
+        a:hover {
+            color: $color-secondary;
+        }
+    }
+}
+
+.m-footer__cover {
+    display: none;
+
+    @include mediaQueriesMinXl {
+        display: block;
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        width: 280px;
+        height: calc(100% - 35px);
+        overflow: hidden;
+    }
+}
+.m-footerCover__image {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scale(.9);
+    width: auto;
+    max-height: 100%;
+}
+
+
+// Firm Monlogo
+.m-firm {
+    width: 100%;
+    background: $color-lightin;
+    padding-top: $spaceRg;
+    padding-bottom: $spaceRg;
+    @include mediaQueriesMd  {
+        padding-top: $spaceXs;
+        padding-bottom: $spaceXs;
+    }
+}
+.m-firm__content {
+    @extend .-container;
+    display: flex;
+    align-items: center;
+
+    @include mediaQueriesMd {
+        padding: $spaceSm;
+        flex-direction: column;
+    }
+}
+.m-firm__logo a {
+    display: flex;
+    img {
+        width: 155px;
+        height: auto;
+    }
+}
+.m-firm__legal {
+    @include Rubik(4);
+    color: $color-darkengrey;
+    font-size: $font-12;
+    line-height: $font-15;
+    margin-left: $spaceMd;
+
+    @include mediaQueriesMd {
+        margin: $spaceSm 0 0;
+        text-align: center;
+    }
+}

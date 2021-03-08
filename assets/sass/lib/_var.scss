@@ -1,0 +1,81 @@
+// colors
+$color-primary: #342ead;
+$color-secondary: #ea6227;
+$color-alert: #f2a51a;
+$color-calm: #b9ebcc;
+
+// colors grey
+$color-lightin: #fff;
+$color-lightgrey: #eee;
+$color-grey: #ddd;
+$color-greyplus: #ccc;
+$color-darkgrey: #aaa;
+$color-darkgreyplus: #999;
+$color-darkengrey: #666;
+$color-darkengreyplus: rgb(31, 40, 49);
+$color-dark: rgb(20, 20, 31);
+$color-black: rgb(14, 16, 19);
+
+// fonts
+$font1: 'Rubik', sans-serif;
+$font2: Georgia, 'Times New Roman', Times, serif;
+$font3: 'Frank Ruhl Libre', serif;
+
+// font-size
+$font-10: 10px;
+$font-11: 11px;
+$font-12: 12px;
+$font-13: 13px;
+$font-14: 14px;
+$font-15: 15px;
+$font-16: 16px;
+$font-17: 17px;
+$font-18: 18px;
+$font-19: 19px;
+$font-25: 25px;
+$font-29: 29px;
+$font-30: 30px;
+$font-35: 35px;
+$font-38: 38px;
+$font-40: 40px;
+$font-45: 45px;
+
+$fontHeading: $font-40, $font-35, $font-30;
+
+// Border
+$borderBottom: 1px solid $color-grey;
+$borderTwo: 1px solid $color-darkengrey;
+
+// Breakpoints
+$breakXl: 1200px;
+$breakLg: 992px;
+$breakMd: 768px;
+$breakSm: 576px;
+$breakXs: 425px;
+$breakXxs: 375px;
+$break0: 320px;
+
+// Spaces
+$spaceXl: 60px;
+$spaceBg: 40px;
+$spaceMd: 30px;
+$space25: 25px;
+$spaceRg: 20px;
+$spaceSm: 15px;
+$spaceXs: 10px;
+$spaceXxs: 7px;
+$space0: 5px;
+
+// z-index status
+$super: 1000;
+$parent: 500;
+$child: 100;
+$friend: 50;
+$guest: 1;
+$anonymous: -1;
+
+// Shadow
+$shadow1: 0 $space0 $space0 rgba(0, 0, 0, .2);
+$shadow2: 0 2px $space0 rgba(0, 0, 0, .2);
+$shadow3: 0 2px $font-12 rgba(0, 0, 0, .2);
+$shadow4: 0 $spaceRg $space25 rgba(0, 0, 0, .2);

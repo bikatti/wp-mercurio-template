@@ -1,0 +1,89 @@
+.o-content {
+    position: relative;
+    transition: transform .5s cubic-bezier(.86,0,.07,1);
+}
+
+.o-headlines {
+    @extend .-container;
+    margin-bottom: calc(#{$spaceXl} + #{$spaceXs});
+    > * {
+        position: relative;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100vw;
+        height: 115px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $color-primary;
+    }
+    @include mediaQueriesMinMd {
+        padding-top: $spaceMd;
+    }
+    @include mediaQueriesMinLg {
+        display: grid;
+        grid-template-columns: 15% $spaceMd 3fr $spaceMd 300px;
+        grid-template-rows: 1fr;
+        margin-bottom: $spaceBg;
+    }
+}
+
+// Ultimos titulares
+.m-headline__list {
+    grid-column: 1/2;
+    grid-row: 1;
+}
+
+// Titulares principales + img
+.m-headline__main {
+    grid-column: 3/4;
+    grid-row: 1;
+    @include mediaQueriesMd {
+        padding-top: $spaceBg;
+    }
+}
+
+.m-mainHeader {
+    display: grid;
+    grid-template-columns: 1fr $spaceRg 1fr;
+    grid-template-rows: 1fr $spaceRg auto;
+
+    &__item {
+        padding-top: 0;
+        &:nth-child(1) {
+            grid-column: 1/4;
+            grid-row: 1/2;
+        }
+        &:nth-child(2) {
+            grid-column: 1/2;
+            grid-row: 3/4;
+        }
+        &:nth-child(3) {
+            grid-column: 3/4;
+            grid-row: 3/4;
+        }
+    }
+
+    @media (max-width: $breakLg) and (min-width: $breakMd), (min-width: 1100px) {
+        grid-template-columns: 2fr $spaceRg 26%;
+        grid-template-rows: 1fr $spaceRg 1fr;
+        &__item {
+            &:nth-child(1) {
+                grid-column: 1/2;
+                grid-row: 1/4;
+            }
+            &:nth-child(2) {
+                grid-column: 3/4;
+                grid-row: 1/2;
+            }
+        }
+    }
+}
+
+// Titutlares trending
+.m-headline__sidebar {
+    grid-column: 5/6;
+    grid-row: 1;
+}

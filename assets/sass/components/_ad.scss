@@ -1,0 +1,26 @@
+.m-section__ad {
+    margin: $spaceMd 0;
+    .m-section__sidebar & {
+        margin-top: 0;
+    }
+    @include mediaQueriesMd {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.m-ad {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.m-ad__link {
+    &:hover {
+        opacity: .9;
+    }
+}

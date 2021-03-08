@@ -1,0 +1,83 @@
+h1, h2, h3, p, small, i, label, span, ol, li, ul, a, input, label, .-h1, .-h2, .-h3 {
+    color: $color-black;
+    line-height: $space25;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @include Rubik(4);
+}
+
+// Styles
+.-uppercase {
+    text-transform: uppercase;
+}
+.-black {
+    @include Rubik(9);
+}
+.-extraBold {
+    @include Rubik(8);
+}
+.-bold {
+    @include Rubik(7);
+}
+.-semiBold {
+    @include Rubik(6);
+}
+.-medium {
+    @include Rubik(5);
+}
+.-regular {
+    @include Rubik(4);
+}
+.-light {
+    @include Rubik(3);
+}
+.-extraLight {
+    @include Rubik(2);
+}
+.-thin {
+    @include Rubik(1);
+}
+
+
+.-italic {
+    font-style: italic;
+}
+.-center {
+    text-align: center;
+}
+.-condensed {
+    letter-spacing: -1px;
+}
+.-semiBoldCondensed {
+    letter-spacing: -0.35px;
+}
+
+// Font
+.-copy {
+    font-family: $font2;
+}
+.-loose {
+    letter-spacing: .16px;
+}
+
+.-country {
+    font-family: $font3;
+    font-weight: 800;
+}
+
+// Color
+.-colorLightin {
+    color: $color-lightin;
+}
+
+// Line-clamp
+.-lineClampTitle {
+    @include lineClamp(2);
+}
+.-lineClampTitleLong {
+    @include lineClamp(4);
+}
+.-lineClampText {
+    @include lineClamp(3);
+}

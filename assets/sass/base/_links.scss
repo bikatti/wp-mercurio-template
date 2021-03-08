@@ -1,0 +1,98 @@
+a {
+    transition: color .24s cubic-bezier(.215,.61,.355,1);
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.-linkHeader {
+    @extend .-flexCenterCenter;
+    color: $color-primary;
+    padding: 0 $spaceRg;
+    font-size: $font-16;
+    &.-onTop {
+        color: $color-black;
+        padding-top: $space0;
+        padding-bottom: 1.8px;
+    }
+}
+
+.-logInLink {
+    @extend .-flexCenterCenter;
+    color: $color-black;
+    &:hover, &:focus {
+        color: $color-primary;
+    }
+    @include mediaQueriesMinLg {
+        padding: $space0 $spaceSm 1.8px;
+        &.-cover {
+            padding: $space0 $space25 1.8px;
+        }
+    }
+    @include mediaQueriesLg {
+        align-self: center;
+        font-size: 13px;
+        padding: 10px 0;
+    }
+}
+
+.-menuLink {
+    @extend .-flexCenterCenter;
+    white-space: nowrap;
+    margin-right: $spaceXs;
+    &:hover, &:focus {
+        color: $color-primary;
+    }
+    @include mediaQueriesMinLg {
+        padding: $space0 $spaceRg;
+    }
+}
+
+.-categoryLink {
+    color: $color-black;
+    &:hover, &:focus {
+        color: $color-primary;
+    }
+    & + & {
+        margin-left: calc(#{$space0} / 2);
+    }
+    & + &::before {
+        content: "";
+        display: inline-block;
+        width: $space0;
+        height: $space0;
+        margin: 0 $space0 0 calc(#{$space0} / 2);
+        border: 1px solid;
+        border-top: none;
+        border-left: none;
+        transform: translateY(-2px) rotate(-45deg);
+    }
+}
+
+.-byLink {
+    color: $color-primary;
+    &:hover, &:focus {
+        color: $color-primary;
+    }
+}
+
+.-tagLink {
+    color: $color-darkengrey;
+    transition: color .24s cubic-bezier(.215,.61,.355,1);
+}
+
+.-trendingLink {
+    color: currentColor;
+    transition: color .24s cubic-bezier(.215,.61,.355,1);
+    &:hover {
+        color: $color-grey;
+    }
+}
+
+.-menuOut {
+    &:hover, &:focus {
+        color: $color-primary;
+    }
+}

@@ -1,0 +1,88 @@
+.m-form {
+    &__group {
+        display: flex;
+    }
+
+    &__field {
+        flex-grow: 1;
+    }
+
+    &__input {
+        height: 40px;
+        width: 100%;
+        padding: 0 $spaceSm;
+        font-size: $font-15;
+
+        .m-form.-footer & {
+            font-size: $font-14;
+        }
+        .m-form.-faded & {
+            border-radius: $space0 0 0 $space0;
+            box-shadow: inset 0 2px $spaceXxs 0 rgba(0,0,0,.5);
+        }
+    }
+
+    &__button {
+        flex-shrink: 0;
+        padding: 0 $spaceSm;
+        font-size: $font-12;
+        letter-spacing: .8px;
+        background-color: $color-black;
+        transition: background-color .24s cubic-bezier(.215,.61,.355,1);
+
+        .m-form.-footer & {
+            width: 25%;
+            margin-left: $space25;
+            font-size: $font-10;
+            background-color: $color-primary;
+
+            &.-blackBg {
+                background-color: $color-black;
+                width: 27%;
+                margin-right: $space0;
+                border: 1px solid $color-lightin;
+            }
+        }
+
+        .m-form.-faded & {
+            border-radius: 0 $space0 $space0 0;
+            color: $color-lightin;
+            background-color: $color-primary;
+        }
+    }
+}
+
+.m-content form {
+    label {
+        display: block;
+        font-size: $font-19;
+        @include Rubik(5);
+        padding-bottom: $spaceXs;
+    }
+
+    input[type=email], input[type=text], textarea {
+        @include Rubik(5);
+        width: 100%;
+        padding: $spaceSm;
+        border: $borderBottom;
+        margin-top: $spaceSm;
+    }
+
+    input[type=submit] {
+        width: 100%;
+    }
+}
+
+.m-form__row {
+    padding-top: $spaceRg;
+    padding-bottom: $spaceRg;
+
+    &.-twoCol {
+        display: grid;
+        grid-gap: $spaceBg;
+    }
+
+    @include mediaQueriesMinMd {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

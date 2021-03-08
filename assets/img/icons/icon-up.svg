@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="71" height="133" viewBox="0 0 75 142.5">
   <g id="icon-up" transform="translate(-3.5 -0.03)">
-    <rect id="Rectángulo_77" data-name="Rectángulo 77" width="34.754" height="24.81" transform="translate(23.071 52.431)" fill="#ea6227"/>
-    <rect id="Rectángulo_81" data-name="Rectángulo 81" width="34.754" height="24.81" transform="translate(23.071 82.448)" fill="#ea6227"/>
-    <rect id="Rectángulo_82" data-name="Rectángulo 82" width="37.863" height="24.81" transform="translate(20.715 112.465)" fill="#ea6227"/>
-    <rect id="Rectángulo_78" data-name="Rectángulo 78" width="34.754" height="24.81" transform="translate(23.071 22.414)" fill="#ea6227"/>
-    <path id="Trazado_18" data-name="Trazado 18" d="M36.9.03,1,34.665H72.78Z" transform="translate(4)" fill="#ea6227" fill-rule="evenodd"/>
-    <rect id="Rectángulo_79" data-name="Rectángulo 79" width="72" height="36" transform="translate(5 105.03)" fill="#fff" stroke="#342ead" stroke-width="3"/>
-    <text id="SUBIR" transform="translate(14.342 129.214)" fill="#ea6227" font-size="18" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="-0.01em"><tspan x="0" y="0">SUBIR</tspan></text>
+    <rect id="Rectángulo_77" data-name="Rectángulo 77" width="34.754" height="24.81" transform="translate(23.071 52.431)" fill="#342ead"/>
+    <rect id="Rectángulo_81" data-name="Rectángulo 81" width="34.754" height="24.81" transform="translate(23.071 82.448)" fill="#342ead"/>
+    <rect id="Rectángulo_82" data-name="Rectángulo 82" width="37.863" height="24.81" transform="translate(20.715 112.465)" fill="#342ead"/>
+    <rect id="Rectángulo_78" data-name="Rectángulo 78" width="34.754" height="24.81" transform="translate(23.071 22.414)" fill="#342ead"/>
+    <path id="Trazado_18" data-name="Trazado 18" d="M36.9.03,1,34.665H72.78Z" transform="translate(4)" fill="#342ead" fill-rule="evenodd"/>
+    <rect id="Rectángulo_79" data-name="Rectángulo 79" width="72" height="36" transform="translate(5 105.03)" fill="#fff" stroke="#eee" stroke-width="3"/>
+    <text id="SUBIR" transform="translate(14.342 129.214)" fill="#342ead" font-size="18" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="-0.01em"><tspan x="0" y="0">SUBIR</tspan></text>
   </g>
 </svg>

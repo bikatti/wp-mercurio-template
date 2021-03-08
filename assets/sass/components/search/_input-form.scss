@@ -1,0 +1,103 @@
+.m-searchResults {
+    @extend .-container;
+    z-index: $guest;
+    padding-top: $space0;
+
+    .nds-input-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: 100%;
+        color: $color-grey;
+        transition: color .24s cubic-bezier(.215,.61,.355,1);
+
+        overflow: hidden;
+        border-radius: $space0;
+    }
+
+    label {
+        flex: 1 0 auto;
+        flex-basis: 66%;
+        flex-grow: 1;
+    }
+
+    .nds-search-input {
+        font-size: $font-18;
+        padding-top: $spaceSm;
+        padding-bottom: $spaceSm;
+        height: 60px;
+        text-indent: $spaceRg;
+        box-shadow: none;
+        border-radius: 0;
+        border: $borderBottom;
+        border-right: none;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .nds-search-button {
+        @include Rubik(7);
+        appearance: none;
+        padding: $spaceXs 0;
+        font-size: $font-14;
+        float: right;
+        outline: none;
+        background-color: $color-black !important;
+        color: $color-lightin;
+        text-transform: uppercase;
+        border: 1px solid $color-black;
+        border-radius: 0;
+        padding-top: $spaceRg;
+        padding-bottom: $spaceRg;
+        width: 33%;
+        max-width: 210px;
+        flex-basis: 33%;
+        height: 60px;
+        overflow: hidden;
+        transition: background-color .24s cubic-bezier(.215,.61,.355,1),color .24s cubic-bezier(.215,.61,.355,1), opacity .24s cubic-bezier(.455,.03,.515,.955);
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+    @include mediaQueriesMinLg {
+        .nds-input-container {
+            color: $color-darkengreyplus;
+        }
+    }
+}
+
+.-containerSearch {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+}
+
+.m-searchForm {
+    .m-searchResults & {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        position: relative;
+    }
+
+    @include mediaQueriesMinLg {
+        .m-searchResults & {
+            margin-top: 53px;
+            margin-bottom: $spaceBg;
+        }
+    }
+
+    @include mediaQueriesMinXl {
+        .m-searchResults & {
+            margin-top: $spaceXl;
+            margin-bottom: 45px;
+        }
+    }
+}
