@@ -27,7 +27,7 @@ function noSticky( $query ) {
 add_filter( 'pre_get_posts', 'noSticky' );
 
 function assets() {
-    $ver = '1.3.22';
+    $ver = '1.3.23';
     wp_register_style( 'rubik', 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', '', $ver , 'all' );
     wp_register_style( 'Frank Ruhl Libre', 'https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap', '', $ver, 'all' );
 
@@ -56,7 +56,7 @@ function assets() {
 add_action( 'wp_enqueue_scripts', 'assets' );
 
 function site_block_editor_js() {
-    $ver = '1.3.22';
+    $ver = '1.3.23';
     wp_register_style( 'rubik', 'https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', '', $ver , 'all' );
     wp_register_style( 'Frank Ruhl Libre', 'https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap', '', $ver, 'all' );
     

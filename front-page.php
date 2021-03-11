@@ -7,6 +7,8 @@
  */
 
 $contents = ['post', 'video'];
+
+
 $stickyBox = 'Información actual variada, educativa y contenido acto para todo público';
 global $contents;
 
@@ -15,24 +17,40 @@ get_header();
 
 
 <div class="o-content">
-    <?php require_once "assets/php/front-page/headline.php"; ?>
-    <!-- .o-headlines -->
-    <?php require_once "assets/php/front-page/features.php"; ?>
-    <!-- .o-section.-noSeparator.-withBottomMargin (_section-two.scss) -->
-    <?php require_once "assets/php/front-page/category-book.php"; ?>
-    <!-- .o-section (_section.scss/_reviews.scss/_cards.scss) -->
+    <?php get_template_part( 
+        'template-parts/front-page/headliners/headline-grid', 
+        '', 
+        $args = [
+            'version' => 1
+        ] ); ?>
+
+    <?php get_template_part( 'template-parts/front-page/featured/featured-container' ); ?>
+
+    <?php get_template_part( 
+        'template-parts/front-page/category/category-container',
+         null,
+         $args = [
+             'category' => 80,
+             'number_post' => 3,
+             'ad' => 2,
+             'up_arrow' => $stickyBox,
+             'type_reviews' => 'book'
+             ] 
+        ); ?>
+
     <?php require_once "assets/php/front-page/lastest.php"; ?>
-    <!-- .o-section.-noSeparator.-withBottomMargin (_section-tree.scss) -->
-    <?php // require_once "assets/php/front-page/category-author.php"; ?>
-    <!-- .o-section (_section.scss/_reviews.scss/_cards.scss) -->
-    <?php // require_once "assets/php/front-page/category-3.php"; ?>
-    <!-- .o-section (_section.scss/_reviews.scss/_cards.scss) -->
-    <?php // require_once "assets/php/front-page/video.php"; ?>
-    <!-- .o-section -->
-    <?php require_once "assets/php/front-page/category-4.php"; ?>
-    <!-- .o-section (_section.scss/_reviews.scss/_cards.scss) -->
-    <?php require_once "assets/php/front-page/last-category.php"; ?>
-    <!-- .o-section (_section-four.scss) -->
+
+    <?php get_template_part( 
+        'template-parts/front-page/category/category-container',
+         null,
+         $args = [
+             'category' => 39,
+             'number_post' => 3,
+             'ad' => 4,
+             'up_arrow' => $stickyBox,
+             'type_reviews' => 'several'
+             ] 
+        ); ?>
 </div>
 
 <?php get_footer(); ?>
