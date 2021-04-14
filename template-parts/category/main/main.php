@@ -19,5 +19,5 @@
         </div><!-- .m-section__header -->
     </div><!-- .m-category__item -->
 
-    <?php get_template_part( 'template-parts/category/main/last-news', '', $args ); ?>
+    <?php get_template_part( 'template-parts/taxonomy/last-news', '', $args ); ?>
 </main><!-- .m-category__primary -->
