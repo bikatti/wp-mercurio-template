@@ -22,7 +22,8 @@ get_header();
         '', 
         $args = [
             'version' => 1
-        ] ); ?>
+        ] 
+    ); ?>
 
     <?php get_template_part( 'template-parts/front-page/featured/featured-container' ); ?>
 
