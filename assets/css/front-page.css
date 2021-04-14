@@ -1998,7 +1998,7 @@ a:hover {
 .-ftHome .m-card__heading {
   word-break: break-word;
   font-size: 15px;
-  line-height: 15px;
+  line-height: 18px;
 }
 .-ftHome .m-card__heading:hover {
   color: #666;
@@ -2604,7 +2604,7 @@ a:hover {
     display: grid;
     grid-template-columns: 15% 30px 3fr 30px 300px;
     grid-template-rows: 1fr;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
 }
 
@@ -2727,14 +2727,13 @@ a:hover {
 
 .m-lastestList__heading {
   font-size: 25px;
-  line-height: 25px;
+  line-height: 1;
   color: #342ead;
 }
 @media only screen and (min-width: 992px) {
   .m-lastestList__heading {
     color: #fff;
     font-size: 35px;
-    line-height: 30px;
     width: 48px;
     letter-spacing: 0;
   }
@@ -3398,7 +3397,7 @@ a:hover {
 .m-theList {
   width: 100%;
   border: 5px solid #eee;
-  padding: 0 25px 0 110px;
+  padding: 0 25px 0 122px;
   position: relative;
   min-height: 114px;
   display: flex;
@@ -3412,11 +3411,11 @@ a:hover {
   position: absolute;
 }
 .m-theList::before {
-  height: 133px;
-  width: 71px;
+  height: 118px;
+  width: 106px;
   background-image: url(../img/icons/icon-up.svg);
-  left: 20px;
-  top: -15px;
+  left: 6px;
+  top: 25px;
 }
 
 .m-theList__headline {
@@ -3609,7 +3608,6 @@ a:hover {
 }
 
 .o-footer {
-  margin-top: 25px;
   color: #fff;
   background-color: #14141f;
   overflow-x: hidden;

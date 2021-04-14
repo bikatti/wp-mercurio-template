@@ -33,12 +33,11 @@
 
 .m-lastestList__heading {
     font-size: $font-25;
-    line-height: $font-25;
+    line-height: 1;
     color: $color-primary;
     @include mediaQueriesMinLg {
         color: $color-lightin;
         font-size: $font-35;
-        line-height: $font-30;
         width: 48px;
         letter-spacing: 0;
     }

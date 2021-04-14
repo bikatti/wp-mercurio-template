@@ -38,7 +38,12 @@ get_header();
              ] 
         ); ?>
 
-    <?php require_once "assets/php/front-page/lastest.php"; ?>
+    <?php get_template_part( 
+        'template-parts/front-page/lastest/tag',
+        null,
+        $args = [
+            'tag' => 107
+        ]); ?>
 
     <?php get_template_part( 
         'template-parts/front-page/category/category-container',

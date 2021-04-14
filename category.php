@@ -1,9 +1,23 @@
-<?php get_header(); 
-      $contents = ['post', 'video'];
-?>
+<?php 
+/**
+ * Muestra el buscador en el Header
+ *
+ * @package Mercurio
+ * @subpackage Mercurio
+ */
 
-<?php require_once "assets/php/category/menu.php"; ?>
-<!-- .o-sectionTop -->
+$contents = ['post', 'video'];
+
+get_header(); 
+
+get_template_part( 
+    'template-parts/category/menu', 
+    '', 
+    $args = [
+        'version' => 1
+    ]
+); 
+?>
 
 <div class="o-content">
     <div class="o-category">

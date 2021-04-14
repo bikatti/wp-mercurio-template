@@ -2115,7 +2115,7 @@ a:hover {
 .-ftHome .m-card__heading {
   word-break: break-word;
   font-size: 15px;
-  line-height: 15px;
+  line-height: 18px;
 }
 .-ftHome .m-card__heading:hover {
   color: #666;
@@ -3376,7 +3376,6 @@ a:hover {
 }
 
 .o-footer {
-  margin-top: 25px;
   color: #fff;
   background-color: #14141f;
   overflow-x: hidden;

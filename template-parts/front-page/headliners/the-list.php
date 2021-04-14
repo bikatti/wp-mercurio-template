@@ -14,7 +14,7 @@
  */
 $args = array(
     'post_type' => $contents,
-    'posts_per_page' => 4,
+    'posts_per_page' => 5,
     'order' => 'DESC',
     'orderby' => 'date'
 );

@@ -1,7 +1,7 @@
 .m-theList {
     width: 100%;
     border: $space0 solid $color-lightgrey;
-    padding: 0 $space25 0 110px;
+    padding: 0 $space25 0 122px;
     position: relative;
     min-height: 114px;
     display: flex;
@@ -15,11 +15,11 @@
         position: absolute;
     }
     &::before {
-        height: 133px;
-        width: 71px;
+        height: 118px;
+        width: 106px;
         background-image: url(../img/icons/icon-up.svg);
-        left: 20px;
-        top: -15px;
+        left: 6px;
+        top: 25px;
     }
 }
 
