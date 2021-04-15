@@ -9,8 +9,9 @@
 $contents = ['post', 'video'];
 $categoryId = get_category( get_query_var( 'cat' ) );
 $imgClass = 'm-crop__img -headline';
+
 $args = [
-    'cat_id'   => $categoryId,
+    'taxonomy_id'   => $categoryId,
     'cropImag' => $imgClass,
     'trending' => 'category',
     'ad_1'     => 6,

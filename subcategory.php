@@ -1,6 +1,6 @@
 <?php
 /**
- * Aside
+ * Subcategory View
  *
  * @package Mercurio
  * @subpackage Mercurio
@@ -18,11 +18,11 @@ if($getCategory->parent) {
 }
 
 $args = [
-    'cat_id'   => $subcategory,
-    'cropImag' => $imgClass,
-    'trending' => '',
-    'ad_1'     => 8,
-    'ad_2'     => 9,
+    'taxonomy_id'   => $subcategory,
+    'cropImag'      => $imgClass,
+    'trending'      => '',
+    'ad_1'          => 8,
+    'ad_2'          => 9,
     'name_taxonomy' => $categoryName
 ];
 
@@ -33,10 +33,13 @@ get_template_part( 'template-parts/taxonomy/header', '', $args );
 
 <div class="o-content">
     <div class="o-category">
-        <?php get_template_part( 'template-parts/taxonomy/content', '', $args ); ?>
+        <?php 
+        get_template_part( 'template-parts/taxonomy/content', '', $args );
         
-        <?php get_template_part( 'template-parts/aside/aside', '', $args ); ?>
-    </div>
-</div>
+        get_template_part( 'template-parts/aside/aside', '', $args ); 
+        ?>
+    </div><!-- .o-category -->
+</div><!-- .o-content -->
 
-<?php get_footer(  ); ?>
+<?php 
+get_footer( );

@@ -8,7 +8,7 @@
 
 $argumentos = array(
     'post_type'      => $contents,
-    'cat'            => $args['cat_id']->term_id,
+    'cat'            => $args['taxonomy_id']->term_id,
     'meta_key' 	    => 'titulares_de_categorias',
     'meta_value'	 => true,
     'posts_per_page' => 3,

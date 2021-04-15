@@ -1,20 +1,36 @@
 <?php 
 /**
  * Last news of the category. Order by desc
- *
+ * 
  * @package Mercurio
  * @subpackage Mercurio
  */
 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-$argumentos = array(
-    'post_type' => $contents,
-    'cat' => $args['cat_id']->term_id,
-    'posts_per_page' => 5,
-    'order' => 'DESC',
-    'paged' => $paged
-);
+if ( is_category() ) {
+    $argumentos = array(
+        'post_type' => $contents,
+        'cat' => $args['taxonomy_id']->term_id,
+        'posts_per_page' => 5,
+        'paged' => $paged
+    );
+} elseif ( is_author() ) {
+    $argumentos = array(
+        'post_type' => $contents,
+        'author' => $args['taxonomy_id']->ID,
+        'posts_per_page' => 5,
+        'paged' => $paged
+    );
+} else {
+    $argumentos = array(
+        'post_type' => $contents,
+        'tag_id' => $args['taxonomy_id']->term_id,
+        'posts_per_page' => 5,
+        'paged' => $paged
+    );
+}
+
 $the_query = new WP_Query($argumentos);
 
 

@@ -7,7 +7,7 @@
  */
 
 $categories = get_categories( [
-    'child_of'     => $args['cat_id']->term_id,
+    'child_of'     => $args['taxonomy_id']->term_id,
     'hide_empty'   => true
     ]
 );
@@ -16,14 +16,14 @@ $categories = get_categories( [
 
 <div class="o-sectionTop">
     <h1 class="m-sectionTop__heading">
-        <span class="-colorLightin -extraBold"><?php _e($args['cat_id']->name); ?></span>
+        <span class="-colorLightin -extraBold"><?php _e($args['taxonomy_id']->name); ?></span>
     </h1><!-- .m-sectionTop__heading -->
 
     <nav class="m-sectionTop__menu">
         <div class="m-pageNav -header">
             <ul class="m-pageNav__list">
                 <li class="m-pageNav__item -active" data-bs-toggle data-bs-target aria-expanded="false" aria-controls data-ripple>
-                    <a class="m-pageNav__link -colorLightin" href="<?php echo esc_url(get_category_link($args['cat_id']->term_id) ); ?>"><?php _e( 'Todos', 'text_domain'); ?></a><!-- .m-pageNav__link  -->
+                    <a class="m-pageNav__link -colorLightin" href="<?php echo esc_url(get_category_link($args['taxonomy_id']->term_id) ); ?>"><?php _e( 'Todos', 'text_domain'); ?></a><!-- .m-pageNav__link  -->
                 </li><!-- .m-pageNav__item -->
 
                 <ul class="m-pageNav__group " id="dropSubMenu_one">
