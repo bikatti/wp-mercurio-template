@@ -1,9 +1,19 @@
-<?php get_header(  ); ?>
+<?php 
+/**
+ * Page view
+ *
+ * @package Mercurio
+ * @subpackage Mercurio
+ */
+
+get_header(  );
+?>
 
 <div class="o-content">
     <div class="o-section o-section__page -standard">
-        <?php require_once "assets/php/page/content.php"; ?>
-    </div>
-</div>
+        <?php get_template_part( 'template-parts/page/default/content', '', $args ); ?>
+    </div><!-- .o-section -->
+</div><!-- .o-content -->
 
-<?php get_footer(  ); ?>
+<?php 
+get_footer(  );
