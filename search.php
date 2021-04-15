@@ -1,15 +1,24 @@
-<?php get_header(  ); ?>
+<?php 
+/**
+ * Search view
+ *
+ * @package Mercurio
+ * @subpackage Mercurio
+ */
+
+
+get_header(  );
+?>
 
 <div class="o-content">
     <div class="m-wrap__main">
         <article class="m-searchResults" role="article">
             <div class="-containerSearch m-blockGroup">
-                <div class="m-searchForm -bolck"><?php echo do_shortcode( '[nds-advanced-search]' ); ?></div>
-                <div class="m-searchResults__main -block m-blockGruop"><?php require_once "assets/php/search/filter.php"; ?></div>
-                <div class="m-footerPage -block"><?php require_once "assets/php/search/results.php"; ?></div>
-            </div>
-        </article>
-    </div>    
-</div>
+                <div class="m-searchForm -bolck"><?php echo do_shortcode( '[nds-advanced-search]' ); ?></div><!-- m-searchForm -->
+            </div><!-- .m-searchResults -->
+        </article><!-- .m-searchResults -->
+    </div><!-- .m-wrap__main -->
+</div><!-- .o-content -->
 
-<?php get_footer(  ); ?>
+<?php
+get_footer(  );

@@ -11,7 +11,7 @@ get_header(  );
 
 <div class="o-content">
     <div class="o-section o-section__page -standard">
-        <?php get_template_part( 'template-parts/page/default/content', '', $args ); ?>
+        <?php get_template_part( 'template-parts/page/default/content' ); ?>
     </div><!-- .o-section -->
 </div><!-- .o-content -->
 

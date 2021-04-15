@@ -1,15 +1,33 @@
-<?php get_header(); 
-    $contents = ['post', 'video'];
+<?php
+/**
+ * The Single
+ *
+ * @package Mercurio
+ * @subpackage Mercurio
+ */
+
+$contents = ['post', 'video'];
+$imgClass = 'm-crop__img -headline';
+
+$args = [
+    'cropImag' => $imgClass,
+    'trending' => '',
+    'ad_1'     => 8,
+    'ad_2'     => 9,
+];
+
+get_header(); 
 ?>
 
 <div class="o-article">
     <div class="o-blog -containerBlog">
-        <!-- main.o-blog__primary -->
-        <?php require_once "assets/php/single/primary.php"; ?>
-        <!-- aside.o-blog__secondary -->
-        <?php require_once "assets/php/aside.php"; ?>
-    </div>
-    <!-- Loop -->
-</div>
+        <?php 
+        get_template_part( 'template-parts/single/content', '', $args );
+        
+        get_template_part( 'template-parts/aside/aside', '', $args );
+        ?>
+    </div><!-- .o-blog -->
+</div><!-- .o-article -->
 
-<?php get_footer(); ?>
+<?php
+get_footer();
