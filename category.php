@@ -1,6 +1,6 @@
 <?php 
 /**
- * Aside
+ * Category view
  *
  * @package Mercurio
  * @subpackage Mercurio
@@ -25,10 +25,13 @@ get_template_part( 'template-parts/category/menu', '', $args );
 
 <div class="o-content">
     <div class="o-category">
-        <?php get_template_part( 'template-parts/category/main/main', '', $args ); ?>
+        <?php 
+        get_template_part( 'template-parts/category/main/main', '', $args );
         
-        <?php get_template_part( 'template-parts/aside/aside', '', $args ); ?>
+        get_template_part( 'template-parts/aside/aside', '', $args );
+        ?>
     </div><!-- .o-category -->
 </div><!-- .o-content -->
 
-<?php get_footer(  ); ?>
+<?php 
+get_footer(  );
