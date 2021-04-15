@@ -10,18 +10,26 @@ $subcategory = get_queried_object();
 
 $contents = ['post', 'video'];
 $imgClass = 'm-crop__img -headline';
+$getCategory = get_category( get_query_var( 'cat' ) );
+
+if($getCategory->parent) {
+    $categoryName = $getCategory;
+    global $categoryName;
+}
+
 $args = [
     'cat_id'   => $subcategory,
     'cropImag' => $imgClass,
     'trending' => '',
     'ad_1'     => 8,
-    'ad_2'     => 9
+    'ad_2'     => 9,
+    'name_taxonomy' => $categoryName
 ];
 
 get_header();
-?>
 
-<?php get_template_part( 'template-parts/taxonomy/header' ); ?>
+get_template_part( 'template-parts/taxonomy/header', '', $args );
+?>
 
 <div class="o-content">
     <div class="o-category">

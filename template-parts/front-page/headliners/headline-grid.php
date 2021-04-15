@@ -14,7 +14,7 @@
 
     <aside class="m-headline__sidebar">
         <?php 
-        get_template_part( 'template-parts/aside/trending-default' );
+        get_template_part( 'template-parts/aside/trending/trending-default' );
 
         // Publidad de la revista
         the_ads('1');
