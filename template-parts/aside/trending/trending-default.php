@@ -22,7 +22,9 @@ $the_query = new WP_Query($argumentos);
 
 <div class="m-headline__sidebarItem">
     <div class="m-trending m-trending__hero">
-        <h4 class="m-trending__heading -bold -loose">Tendencias</h4><!-- .m-trending__heading -->
+        <h4 class="m-trending__heading -bold -loose">
+            <?php echo get_option( 'mercurio_trending_text', __( 'Tendencia', 'nd_dosth' ) ); ?>
+        </h4><!-- .m-trending__heading -->
         <ol class="m-trending__list">
             <?php 
                 if ($the_query->have_posts()) {
@@ -43,4 +45,3 @@ $the_query = new WP_Query($argumentos);
         </ol><!-- .m-trending__list -->
     </div><!-- .m-trending.m-trending__herom -->
 </div><!-- .m-headline__sidebarItem -->
-

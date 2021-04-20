@@ -24,7 +24,9 @@ $iter = 0;
 
 <div class="m-blog__item">
     <div class="m-trending m-trending__sidebar">
-        <h4 class="m-trending__heading -bold -loose"><?php _e( 'Tendencia' ); ?></h4><!-- .m-trending__heading -->
+        <h4 class="m-trending__heading -bold -loose">
+            <?php echo get_option( 'mercurio_trending_text', __( 'Tendencia', 'nd_dosth' ) ); ?>
+        </h4><!-- .m-trending__heading -->
         <ol class="m-trending__list">
             <?php 
                 if ($headlines->have_posts()) {

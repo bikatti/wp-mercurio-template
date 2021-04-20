@@ -25,7 +25,9 @@ $the_query = new WP_Query($args);
 <div class="m-headline__list">
     <div class="m-lastestList">
         <div class="m-lastestList__header">
-            <h4 class="m-lastestList__heading -bold">Últimas Noticias</h4><!-- .m-lastestList__heading -->
+            <h4 class="m-lastestList__heading -bold">
+                <?php printf( get_theme_mod('mercurio_last_news_text') ); ?>
+            </h4><!-- .m-lastestList__heading -->
         </div><!-- .m-lastestList__header -->
 
         <?php 
