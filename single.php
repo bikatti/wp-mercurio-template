@@ -12,8 +12,8 @@ $imgClass = 'm-crop__img -headline';
 $args = [
     'cropImag' => $imgClass,
     'trending' => '',
-    'ad_1'     => 8,
-    'ad_2'     => 9,
+    'ad_1'     => 9,
+    'ad_2'     => 10,
 ];
 
 get_header(); 

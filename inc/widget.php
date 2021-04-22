@@ -25,11 +25,11 @@ add_action('widgets_init', 'sidebar');
 function copyright() {
     register_sidebar(
         array(
-            'name' => 'Copyrigth',
-            'id' => 'cprt',
-            'description' => 'Copyright del contenido de la página web',
-            'before_title' => '',
-            'after_title' => '',
+            'name'          => 'Copyrigth',
+            'id'            => 'cprt',
+            'description'   => 'Copyright del contenido de la página web',
+            'before_title'  => '',
+            'after_title'   => '',
             'before_widget' => '',
             'after_widget'  => '',
         )

@@ -10,7 +10,7 @@ $args = array(
     'post_type' => 'publicidad',
     'posts_per_page' => 1,
     'meta_key'		=> 'posicion_ad',
-    'meta_value'	=> 5,
+    'meta_value'	=> 4,
     'order' => 'DESC',
     'orderby' => 'date'
 );

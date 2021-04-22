@@ -15,8 +15,8 @@ $args = [
     'taxonomy_id'   => $author,
     'cropImag' => $imgClass,
     'trending' => '',
-    'ad_1'     => 8,
-    'ad_2'     => 9,
+    'ad_1'     => 13,
+    'ad_2'     => 14,
 ];
 
 get_header();

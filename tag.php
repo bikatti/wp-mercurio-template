@@ -15,8 +15,8 @@ $args = [
     'taxonomy_id'   => $tag,
     'cropImag' => $imgClass,
     'trending' => '',
-    'ad_1'     => 8,
-    'ad_2'     => 9,
+    'ad_1'     => 11,
+    'ad_2'     => 12,
     'name_taxonomy' => $tag
 ];
 

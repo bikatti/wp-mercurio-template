@@ -14,8 +14,8 @@ $args = [
     'taxonomy_id'   => $categoryId,
     'cropImag' => $imgClass,
     'trending' => 'category',
-    'ad_1'     => 6,
-    'ad_2'     => 7
+    'ad_1'     => 5,
+    'ad_2'     => 6
 ];
 
 get_header(); 

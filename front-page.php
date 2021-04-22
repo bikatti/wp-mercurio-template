@@ -52,7 +52,7 @@ get_header();
          $args = [
              'category' => 39,
              'number_post' => 3,
-             'ad' => 4,
+             'ad' => 3,
              'up_arrow' => $stickyBox,
              'type_reviews' => 'several'
              ] 

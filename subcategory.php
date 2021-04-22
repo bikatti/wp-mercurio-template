@@ -21,8 +21,8 @@ $args = [
     'taxonomy_id'   => $subcategory,
     'cropImag'      => $imgClass,
     'trending'      => '',
-    'ad_1'          => 8,
-    'ad_2'          => 9,
+    'ad_1'          => 7,
+    'ad_2'          => 8,
     'name_taxonomy' => $categoryName
 ];
 
